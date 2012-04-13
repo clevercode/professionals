@@ -61,8 +61,8 @@ header h1 span {
 
 section {
   width: 100%;
-  height: 460px;
   margin-top: 50px;
+  min-height: 460px;
 }
 
 section h2 {
