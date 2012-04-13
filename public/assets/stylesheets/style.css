@@ -84,8 +84,8 @@ section img {
   margin-right: 4%;
   border: 10px solid #f1eee5;
   box-shadow: #1f403e 1px 2px 4px;
-  -moz-box-shadow: #1f403e 1px 2px 4px;
-  -webkit-box-shadow: #1f403e 1px 2px 4px;
+  -moz-box-shadow: #1f403e 1px 2px 5px;
+  -webkit-box-shadow: #1f403e 1px 2px 5px;
 }
 
 section p {
