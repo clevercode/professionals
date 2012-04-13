@@ -1,27 +1,35 @@
 * {
   margin: 0px;
   padding: 0px;
+  color: #f1eee5;
   list-style: none;
   text-decoration: none;
 }
 
 html {
   font-size: 16px;
-  border-top: 7px solid #000;
   background-color: #191919;
+  border-top: 7px solid #000;
 }
 
 body {
-  height: 578px;
   overflow: auto;
   font-size: 62.5%;
   border-top: 1px solid #3f817c;
   background: #2b5956 url(../images/body-background.jpg) no-repeat center -8px;
 }
 
-#wrapper {
+.wrapper {
   width: 940px;
   margin: 30px auto 0px;
+}
+
+a {
+  font-weight: bold;
+}
+
+header {
+  height: 38px;
 }
 
 header h1 {
@@ -31,7 +39,6 @@ header h1 {
 
 header h1 a {
   float: left;
-  color: #f1eee5;
   display: block;
   font-size: 3.2em;
   font-weight: 900;
@@ -43,7 +50,7 @@ header h1 span {
   float: left;
   color: #a4dbd5;
   display: block;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 400;
   font-style: italic;
   padding-left: 10px;
@@ -53,25 +60,56 @@ header h1 span {
 }
 
 section {
+  width: 100%;
+  height: 460px;
   margin-top: 50px;
 }
 
 section h2 {
-  color: #f1eee5;
-  font-size: 2.4em;
+  width: 73%;
+  float: left;
+  font-size: 2.6em;
   font-weight: 400;
-  text-align: center;
   font-style: italic;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
   text-shadow: #1f403e 1px 1px 3px;
   font-family: "freight-text-pro", serif;
 }
 
+section img {
+  float: left;
+  display: block;
+  max-width: 20%;
+  margin-right: 4%;
+  border: 10px solid #f1eee5;
+  box-shadow: #1f403e 1px 2px 4px;
+  -moz-box-shadow: #1f403e 1px 2px 4px;
+  -webkit-box-shadow: #1f403e 1px 2px 4px;
+}
+
 section p {
+  width: 73%;
+  float: left;
   color: #a4dbd5;
   font-size: 1.8em;
-  font-weight: 300;
+  font-weight: 100;
   text-shadow: #1f403e 1px 1px 0px;
+  font-family: "museo-sans", sans-serif;
+}
+
+section p a { color: #a4dbd5; }
+
+footer {
+  padding-top: 16px;
+  background: #191919 url(../images/footer-border.jpg) repeat-x 0px 0px;
+}
+
+footer p {
+  font-size: 1.3em;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: #000 1px 1px 0px;
   font-family: "museo-sans", sans-serif;
 }
 
