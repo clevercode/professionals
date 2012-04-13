@@ -101,7 +101,7 @@ section p {
 section p a { color: #a4dbd5; }
 
 footer {
-  padding-top: 16px;
+  padding: 16px 0 20px;
   background: #191919 url(../images/footer-border.jpg) repeat-x 0px 0px;
 }
 
