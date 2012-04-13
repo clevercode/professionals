@@ -94,6 +94,7 @@ section p {
   color: #a4dbd5;
   font-size: 1.8em;
   font-weight: 100;
+  margin-bottom: 10px;
   text-shadow: #1f403e 1px 1px 0px;
   font-family: "museo-sans", sans-serif;
 }
