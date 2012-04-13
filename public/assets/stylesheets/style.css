@@ -113,3 +113,11 @@ footer p {
   font-family: "museo-sans", sans-serif;
 }
 
+@media screen and (orientation: portrait) {
+  .wrapper { max-width: 100%; }
+}
+
+@media screen and (orientation: landscape) {
+  .wrapper { max-width: 100%; }
+}
+
