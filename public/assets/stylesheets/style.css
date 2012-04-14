@@ -3,7 +3,6 @@
   padding: 0px;
   color: #f1eee5;
   list-style: none;
-  text-decoration: none;
 }
 
 html {
@@ -24,10 +23,6 @@ body {
   margin: 30px auto 0px;
 }
 
-a {
-  font-weight: bold;
-}
-
 header {
   height: 38px;
 }
@@ -41,12 +36,12 @@ header h1 a {
   float: left;
   display: block;
   font-size: 3.2em;
-  font-weight: 900;
+  text-decoration: none;
   text-shadow: #1f403e 1px 1px 3px;
-  font-family: "museo-sans", sans-serif;
+  font-family: "chaparral-pro", sans-serif;
 }
 
-header h1 span {
+header h1 aside {
   float: left;
   color: #a4dbd5;
   display: block;
@@ -91,7 +86,7 @@ section img {
 section p {
   width: 73%;
   float: left;
-  color: #a4dbd5;
+  color: #badbd7;
   font-size: 1.8em;
   font-weight: 100;
   margin-bottom: 10px;
@@ -101,24 +96,60 @@ section p {
 
 section p a { color: #a4dbd5; }
 
-footer {
-  padding: 16px 0 20px;
+.stitched-border {
+  width: 100%;
+  padding: 16px 0px 0px;
   background: #191919 url(../images/footer-border.jpg) repeat-x 0px 0px;
 }
 
+footer {
+  overflow: hidden;
+  padding: 0px 0px 20px;
+  background: #191919 url(../images/footer-background.jpg) repeat-x 0px 0px;
+}
+
+footer .wrapper { margin: 10px auto 0px; }
+
+footer .image {
+  float: right;
+  width: 90px;
+  height: 100px;
+  display: block;
+  overflow: hidden;
+  border: 7px solid #f1eee5;
+  box-shadow: #000 1px 2px 4px;
+  -moz-box-shadow: #000 1px 2px 5px;
+  -webkit-box-shadow: #000 1px 2px 5px;
+}
+
+footer .image img { height: 135px; }
+
 footer p {
-  font-size: 1.3em;
+  width: 75%;
+  float: right;
+  font-size: 1.4em;
   font-weight: 300;
-  text-align: center;
+  text-align: right;
+  margin: 0 3% 7px 0;
+  line-height: 1.5em;
+  padding-right: 25px;
   text-shadow: #000 1px 1px 0px;
   font-family: "museo-sans", sans-serif;
 }
 
-@media screen and (orientation: portrait) {
-  .wrapper { max-width: 100%; }
+footer p.phone {
+  background: url(../images/icon-phone.png) no-repeat right center;
 }
 
-@media screen and (orientation: landscape) {
-  .wrapper { max-width: 100%; }
+footer p.email {
+  background: url(../images/icon-email.png) no-repeat right center;
+}
+
+footer p.facebook {
+  background: url(../images/icon-facebook.png) no-repeat right center;
+}
+
+footer p.map {
+  background: url(../images/icon-map.png) no-repeat right center;
 }
 
