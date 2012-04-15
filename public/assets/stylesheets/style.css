@@ -18,8 +18,15 @@ body {
   background: #2b5956 url(../images/body-background.jpg) no-repeat center -8px;
 }
 
+.stitched-border {
+  width: 100%;
+  padding: 16px 0px 0px;
+  background: #191919 url(../images/footer-border.jpg) repeat-x 0px 0px;
+}
+
 .wrapper {
   width: 940px;
+  overflow: hidden;
   margin: 30px auto 0px;
 }
 
@@ -57,7 +64,8 @@ header h1 aside {
 section {
   width: 100%;
   margin-top: 50px;
-  min-height: 460px;
+  overflow: hidden;
+  padding-bottom: 150px;
 }
 
 section h2 {
@@ -72,17 +80,19 @@ section h2 {
   font-family: "freight-text-pro", serif;
 }
 
-section img {
+section .image {
   float: left;
-  display: block;
-  max-width: 20%;
+  width: 150px;
+  height: 250px;
   margin-right: 4%;
+  overflow: hidden;
   border: 10px solid #f1eee5;
-  box-shadow: #1f403e 1px 2px 4px;
   -moz-box-shadow: #1f403e 1px 2px 5px;
   -webkit-box-shadow: #1f403e 1px 2px 5px;
+  box-shadow: #1f403e 1px 2px 4px; // comments
 }
 
+section .image img { height: 260px; }
 section p {
   width: 73%;
   float: left;
@@ -95,21 +105,13 @@ section p {
 }
 
 section p a { color: #a4dbd5; }
-
-.stitched-border {
-  width: 100%;
-  padding: 16px 0px 0px;
-  background: #191919 url(../images/footer-border.jpg) repeat-x 0px 0px;
-}
-
 footer {
   overflow: hidden;
-  padding: 0px 0px 20px;
+  padding: 0px 0px 15px;
   background: #191919 url(../images/footer-background.jpg) repeat-x 0px 0px;
 }
 
 footer .wrapper { margin: 10px auto 0px; }
-
 footer .image {
   float: right;
   width: 90px;
@@ -123,7 +125,6 @@ footer .image {
 }
 
 footer .image img { height: 135px; }
-
 footer p {
   width: 75%;
   float: right;
@@ -137,19 +138,38 @@ footer p {
   font-family: "museo-sans", sans-serif;
 }
 
-footer p.phone {
-  background: url(../images/icon-phone.png) no-repeat right center;
+footer p.map { background: url(../images/icon-map.png) no-repeat right center; }
+footer p.phone { background: url(../images/icon-phone.png) no-repeat right center; }
+footer p.email { background: url(../images/icon-email.png) no-repeat right center; }
+footer p.facebook { background: url(../images/icon-facebook.png) no-repeat right center; }
+
+@media screen and (max-width: 980px) {
+  .wrapper { width: 95%; }
 }
 
-footer p.email {
-  background: url(../images/icon-email.png) no-repeat right center;
+@media screen and (max-width: 780px) {
+  section .image {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+  }
+
+  section .image { display: none; }
+  section p, section h2 { width: 100%; }
+
 }
 
-footer p.facebook {
-  background: url(../images/icon-facebook.png) no-repeat right center;
+@media screen and (max-width: 615px) {
+  footer .image { display: none; }
+  footer p { width: 90%; }
 }
 
-footer p.map {
-  background: url(../images/icon-map.png) no-repeat right center;
+@media screen and (max-width: 427px) {
+  header h1 aside { display: none; }
+  section {
+    padding: 0px;
+    margin: 20px 0;
+  }
 }
+
 
