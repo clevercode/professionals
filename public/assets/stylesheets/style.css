@@ -6,9 +6,10 @@
 }
 
 html {
+  min-width: 390px;
   font-size: 16px;
-  background-color: #191919;
   border-top: 7px solid #000;
+  background: #191919 url(../images/footer-background.jpg) repeat 0px 0px;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
 
 .stitched-border {
   width: 100%;
+  display: none;
   padding: 16px 0px 0px;
   background: #191919 url(../images/footer-border.jpg) repeat-x 0px 0px;
 }
@@ -94,11 +96,12 @@ section .image {
 
 section .image img { height: 260px; }
 section p {
-  width: 73%;
+  width: 78%;
   float: left;
   color: #badbd7;
   font-size: 1.8em;
   font-weight: 100;
+  text-align: justify;
   margin-bottom: 10px;
   text-shadow: #1f403e 1px 1px 0px;
   font-family: "museo-sans", sans-serif;
@@ -107,7 +110,11 @@ section p {
 section p a { color: #a4dbd5; }
 footer {
   overflow: hidden;
-  padding: 0px 0px 15px;
+  padding: 10px 0px 20px;
+  border-top: 1px solid #3f817c;
+  box-shadow: #000 0px 1px 10px inset;
+  -moz-box-shadow: #000 0px 1px 10px inset;
+  -webkit-box-shadow: #000 0px 1px 10px inset;
   background: #191919 url(../images/footer-background.jpg) repeat-x 0px 0px;
 }
 
@@ -145,6 +152,7 @@ footer p.facebook { background: url(../images/icon-facebook.png) no-repeat right
 
 @media screen and (max-width: 980px) {
   .wrapper { width: 95%; }
+  section p { width: 73%; }
 }
 
 @media screen and (max-width: 780px) {
