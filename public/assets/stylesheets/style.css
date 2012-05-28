@@ -96,7 +96,7 @@ section .image {
 
 section .image img { height: 260px; }
 section p {
-  width: 78%;
+  width: 75%;
   float: left;
   color: #badbd7;
   font-size: 1.8em;
