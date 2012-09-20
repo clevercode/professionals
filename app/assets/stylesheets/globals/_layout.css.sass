@@ -1,0 +1,87 @@
+*
+  margin: 0px
+  padding: 0px
+  color: $theme-off-white
+  list-style: none
+  +box-sizing(border-box)
+
+html
+  height: 100%
+  min-width: 390px
+  font-size: 16px
+  border-top: 7px solid black
+  background: $white
+
+body
+  min-height: 100%
+  position: relative
+  padding-bottom: 40px
+  overflow: auto
+  font-size: 62.5%
+  font-weight: 100
+  font-family: "museo-sans", "helvetica neue", helvetica, arial, sans-serif
+  border-top: 1px solid $theme-highlight
+  background: $white image-url('body-background_teal.jpg') repeat-x center -8px
+
+  @if $theme == $teal
+    background-image: image-url('body-background_teal.jpg')
+  @else if $theme == $blue
+    background-image: image-url('body-background_blue.jpg')
+  @else if $theme == $red
+    background-image: image-url('body-background_red.jpg')
+  @else if $theme == $green
+    background-image: image-url('body-background_green.jpg')
+  @else if $theme == $brown
+    background-image: image-url('body-background_brown.jpg')
+  @else if $theme == $orange
+    background-image: image-url('body-background_orange.jpg')
+
+.stitched-border
+  width: 100%
+  padding: 16px 0px 0px
+  background: $theme-dark-grey image-url('footer-border.jpg') repeat-x 0px 0px
+
+.wrapper
+  width: 90%
+  max-width: 1050px
+  overflow: hidden
+  margin: 30px auto 0px
+
+.dark-banner
+  z-index: 100
+  position: relative
+  overflow: hidden
+  +box-shadow(black 0px 10px 10px -9px inset)
+  background: $theme-dark-grey image-url('images/footer-background.jpg') repeat 0px 0px
+
+  .wrapper
+    margin: 30px auto 0
+
+.content
+  padding: 40px 0
+  background: $white
+  border-top: 10px solid $off-white
+
+  .wrapper
+    margin: 0 auto
+
+section
+  width: 100%
+  overflow: hidden
+
+  h2
+    font-size: 2.6em
+    font-weight: 400
+    font-style: italic
+    margin-bottom: 20px
+    text-transform: capitalize
+    text-shadow: $theme-shadow 1px 1px 3px
+    font-family: "freight-text-pro", serif
+
+  p
+    margin-bottom: 10px
+    line-height: 1.3em
+
+    a
+      color: $theme-copy
+   

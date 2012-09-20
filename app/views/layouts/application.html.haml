@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %title Dr. Daniel Nicoll
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application', 'http://use.typekit.com/gmo3gwp.js'
+    = csrf_meta_tags
+    %meta{ name: 'description', content: 'Latest updates and information about Dr. Daniel Nicoll, DO.' }
+    %meta{ name: 'keywords', content: 'Dr, Dr., Doctor, Dan, Daniel, Nicoll, DO, MD, OB, Tulsa, Oklahoma, OK, Obstetrics, Family Practice, Southcrest, Hillcrest, Saint Francis, Family Doctor, Family Practice, Wagoner' }
+    :javascript
+      // Typekit
+      try{Typekit.load();}catch(e){}
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30848828-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+  %body
+    %header
+      .wrapper
+        %h1
+          = link_to 'Dr. Daniel Nicoll, DO', '/'
+          %aside |&nbsp;&nbsp;&nbsp;Family Practice & Obstetrics
+        %nav
+          =link_to 'Home', '', class: 'current'
+          =link_to 'About', ''
+          =link_to 'FAQ', ''
+          =link_to 'Contact', ''
+
+    = yield
+
+    %footer
+      .wrapper
+        %p.copyright
+          © 2012
+          %span Dr. Daniel Nicoll.
+          All Rights Reserved.
+        %p.crafted
+          crafted by cleverCode
+

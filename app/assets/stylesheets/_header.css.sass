@@ -1,0 +1,58 @@
+header
+  height: 38px
+
+header h1
+  float: left
+  font-size: 1.0em
+  overflow: hidden
+
+header h1 a
+  float: left
+  display: block
+  font-size: 3.2em
+  text-decoration: none
+  text-shadow: $theme-shadow 1px 1px 3px
+  font-family: "chaparral-pro", sans-serif
+
+header h1 aside
+  float: left
+  color: $theme-copy
+  display: block
+  font-size: 1.3em
+  font-weight: 400
+  font-style: italic
+  padding-left: 10px
+  margin: 11px 0 0 5px
+  text-shadow: $theme-shadow -1px -1px 0px
+  font-family: "freight-text-pro", serif
+
+header nav
+  float: right
+  padding-right: 1px
+
+  a
+    float: left
+    display: block
+    margin-left: 13px
+    padding: 9px 9px 7px 10px
+    font-size: 1.3em
+    font-weight: bold
+    text-decoration: none
+    text-shadow: $theme-shadow 0 1px 0
+    +border-radius(3px)
+
+    &:hover
+      background: rgba(255,255,255,0.1)
+      text-shadow: rgba(0,0,0,0.5) 0 1px 0
+      +box-shadow(rgba(0,0,0,0.4) 1px 1px 0 inset, rgba(255,255,255,0.2) 1px 1px 0)
+
+    &:active
+      background: rgba(0,0,0,0.2)
+      text-shadow: rgba(0,0,0,0.5) 0 1px 0
+      +box-shadow(rgba(0,0,0,0.4) 1px 1px 0 inset, rgba(255,255,255,0.2) 1px 1px 0)
+
+    &.current
+      background: #111
+      text-shadow: black 0 1px 0
+      +box-shadow(black 1px 1px 3px inset, rgba(255,255,255,0.2) 1px 1px 0)
+
