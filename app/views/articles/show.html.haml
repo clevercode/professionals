@@ -1,0 +1,8 @@
+%section.header
+  .wrapper
+    %h2= @article.title
+
+%section.content
+  .wrapper
+    %p= link_to '‹‹ Go back', articles_path
+    %p= @article.formatted_content
