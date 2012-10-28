@@ -1,0 +1,25 @@
+%section.header
+  .wrapper
+    %h2 Frequently Asked Questions
+    %p
+      Below is a list of my most frequently asked questions. The majority of
+      these questions relate to prenatal care, and should be used as a reference
+      throughout your pregnancy. Keep in mind that even though this information
+      is intended for the patients of Saint Francis Hopsital in Oklahoma, it can
+      be helpful for anyone.
+
+%section.content
+  .wrapper
+    - @answers.each do |answer, index|
+      %article.answer
+        %h1= answer.question
+        - if answer.content_too_long?
+          %p= truncate answer.content, length: 275
+          %p.read-more= link_to 'Read more ››', answer
+        - else
+          %p= answer.formatted_content
+
+:javascript
+  answers.init()
+
+  

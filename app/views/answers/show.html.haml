@@ -1,0 +1,8 @@
+%section.header
+  .wrapper
+    %h2= @answer.question
+
+%section.content
+  .wrapper
+    %p= link_to '‹‹ Go back', answers_path
+    %p= @answer.formatted_content
