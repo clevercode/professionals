@@ -10,31 +10,18 @@ html
   min-width: 390px
   font-size: 16px
   border-top: 7px solid black
-  background: $white
+  background: image-url('body-background.gif') repeat left top
 
 body
   min-height: 100%
   position: relative
-  padding-bottom: 40px
+  padding-bottom: 237px
   overflow: auto
-  font-size: 62.5%
+  font-size: 10px
   font-weight: 100
   font-family: "museo-sans", "helvetica neue", helvetica, arial, sans-serif
   border-top: 1px solid $theme-highlight
-  background: $white image-url('body-background_teal.jpg') repeat-x center -8px
-
-  @if $theme == $teal
-    background-image: image-url('body-background_teal.jpg')
-  @else if $theme == $blue
-    background-image: image-url('body-background_blue.jpg')
-  @else if $theme == $red
-    background-image: image-url('body-background_red.jpg')
-  @else if $theme == $green
-    background-image: image-url('body-background_green.jpg')
-  @else if $theme == $brown
-    background-image: image-url('body-background_brown.jpg')
-  @else if $theme == $orange
-    background-image: image-url('body-background_orange.jpg')
+  +background(radial-gradient(50% 275px, transparentize(saturate($theme, 10%), 0.5), transparent), transparentize($theme, 0.25))
 
 .stitched-border
   width: 100%
@@ -65,9 +52,36 @@ body
   .wrapper
     margin: 0 auto
 
+    a
+      color: #333
+      font-weight: bold
+      text-decoration: none
+
+      &:hover, &:focus
+        text-decoration: underline
+
+      &:active
+        color: black
+
 section
   width: 100%
   overflow: hidden
+
+  &.header
+    h2
+      text-align: center
+      margin-bottom: 30px
+
+    p
+      width: 100%
+      color: $theme-copy
+      margin-bottom: 20px
+      font-size: 1.8em
+      text-align: center
+      text-shadow: $theme-shadow 1px 1px 0px
+
+      a
+        color: $theme-copy
 
   h2
     font-size: 2.6em

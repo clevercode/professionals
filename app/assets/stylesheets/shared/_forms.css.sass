@@ -1,0 +1,94 @@
+form
+  .two-column li
+    width: 48%
+    float: left
+    margin-right: 4%
+
+    &:nth-of-type(even)
+      margin-right: 0
+
+  .three-column li
+    width: 31%
+    float: left
+    margin-right: 3.5%
+
+    &:nth-of-type(3n)
+      margin-right: 0
+
+  li
+    width: 100%
+    margin-bottom: 2.5em
+
+    &.action
+      margin-bottom: 0
+
+    label
+      display: block
+      margin-bottom: 0.46667em
+      width: 100%
+      font-size: 1.5em
+
+    input, textarea
+      display: block
+      max-width: 100%
+      padding: 0.66667em
+      width: 100%
+      background: rgba(0,0,0,0.75)
+      border: 1px solid rgba(0,0,0,1)
+      +border-radius(5px)
+      +box-shadow(rgba(0,0,0,0.5) 1px 2px 3px 0 inset, rgba(255,255,255,0.2) 0 1px 0)
+      font-size: 1.5em
+      line-height: 1.7em
+      resize: none
+
+      &:focus
+        background: rgba(0,0,0,0.65)
+        outline: none
+
+      &[type=submit]
+        cursor: pointer
+        text-shadow: black -1px -1px 0
+        +background-image(linear-gradient(#111 50%, #090909 50%))
+        +box-shadow(rgba(0,0,0,0.5) 0 1px 3px 1px inset, rgba(255,255,255,0.2) 0 1px 0)
+
+        &:focus, &:hover
+          +background-image(linear-gradient(#151515 50%, #0d0d0d 50%))
+
+        &:active
+          +background-image(linear-gradient(#0c0c0c 50%, #050505 50%))
+          +box-shadow(rgba(0,0,0,0.75) 0 1px 5px 0 inset, rgba(255,255,255,0.2) 0 1px 0)
+
+form.light
+  li
+    input, textarea
+      color: #333
+      border: 1px solid white
+      background: rgba(255,255,255,0.85)
+      +box-shadow(rgba(0,0,0,0.5) 1px 2px 3px, rgba(255,255,255,0.25) 0 1px 0 0 inset)
+
+      &:focus
+      background: white
+
+      &[type=submit]
+        color: #fff
+        border: none
+        cursor: pointer
+        text-shadow: black -1px -1px 0
+        +background-image(linear-gradient(#111 50%, #090909 50%))
+        +box-shadow(rgba(0,0,0,0.5) 0 1px 3px 1px inset, rgba(255,255,255,0.25) 0 1px 0)
+
+        &:focus, &:hover
+          +background-image(linear-gradient(#151515 50%, #0d0d0d 50%))
+
+        &:active
+          background: #090909
+          +box-shadow(rgba(0,0,0,0.75) 0 1px 5px 0 inset, rgba(255,255,255,0.25) 0 1px 0)
+
+form.multi-step
+  div[class*=step]
+    display: none
+    height: 175px
+
+    &.step-1
+      display: block
+
