@@ -1,0 +1,50 @@
+footer
+  left: 0
+  right: 0
+  bottom: 0
+  position: absolute
+  height: 237px
+  overflow: hidden
+  font-size: 1em
+  background: $theme-dark-grey
+
+  .wrapper
+    margin: 15px auto
+
+  form
+    width: 50%
+    float: right
+    padding-bottom: 1px
+
+    li
+      margin-bottom: 1em
+
+    label
+      display: none
+
+    input, textarea
+      font-size: 1.3em
+      border-bottom: 1px dashed #444
+      background: none
+      +box-shadow(none)
+
+    input[type=submit]
+      border: 1px solid black
+
+  .foot
+    clear: both
+    overflow: hidden
+    background: black
+
+  p
+    float: left
+    color: $grey
+    margin: 0
+    font-size: 1.1em
+
+    &.crafted
+      float: right
+
+    span
+      color: $white
+
