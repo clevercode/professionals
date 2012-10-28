@@ -1,9 +1,15 @@
 Drdannicoll::Application.routes.draw do
+  
+  resources :questions
+
+  resources :articles
+
+  resources :answers
+
   root :to => 'pages#home'
 
-  # See how all your routes lay out with "rake routes"
+  match '/about' => 'pages#about'
+  match '/faq' => 'pages#faq'
+  match '/contact' => 'pages#contact'
 
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end
