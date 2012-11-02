@@ -38,7 +38,7 @@
 
     %footer
       .wrapper
-        = semantic_form_for Question.new, html: { class: '' } do |f|
+        = semantic_form_for Question.new do |f|
           = f.inputs do
             .two-column
               = f.input :name, placeholder: 'Your Name'
