@@ -3,16 +3,16 @@ footer
   right: 0
   bottom: 0
   position: absolute
-  height: 237px
+  height: 25.7em
   overflow: hidden
   font-size: 1em
-  background: $theme-dark-grey
+  background: $theme-dark-grey image-url('footer-background.jpg') repeat 0 0
 
   .wrapper
     margin: 15px auto
 
   form
-    width: 50%
+    width: 40%
     float: right
     padding-bottom: 1px
 
@@ -23,18 +23,26 @@ footer
       display: none
 
     input, textarea
+      padding: 0.3846em 0.66667em
+      // background: rgba(255,255,255,0.75)
+      // color: $theme-dark-grey
       font-size: 1.3em
-      border-bottom: 1px dashed #444
-      background: none
-      +box-shadow(none)
 
-    input[type=submit]
-      border: 1px solid black
+      // &:focus
+      //   background: rgba(255,255,255,0.9)
+
+      &[type=submit]
+        +buttonify(#e5e5e5,#c5c5c5)
+        +box-shadow(rgba(255,255,255,0.35) 0 1px 0 0 inset, rgba(0,0,0,0.15) 0 1px 0)
+        color: $theme-dark-grey
 
   .foot
     clear: both
     overflow: hidden
     background: black
+
+    .wrapper
+      margin: 2em auto
 
   p
     float: left
