@@ -37,6 +37,7 @@
     = yield
 
     %footer
+      .stitched-border
       .wrapper
         = semantic_form_for Question.new do |f|
           = f.inputs do
@@ -47,6 +48,7 @@
           = f.actions do
             = f.action :submit, label: 'Ask a Question'
 
+      .stitched-border
       .foot
         .wrapper
           %p.copyright
