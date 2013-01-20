@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @title = 'Articles'
     @body_class = 'articles'
-    @articles = Article.all
+    @articles = Article.order :keyword
 
     respond_to do |format|
       format.html # index.html.erb
