@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :content, :title
+  attr_accessible :content, :title, :keyword
 
   def formatted_content
     self.content.gsub(/\n/, '<br/>').html_safe
