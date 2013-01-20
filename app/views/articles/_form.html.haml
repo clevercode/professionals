@@ -1,6 +1,8 @@
 = semantic_form_for @article do |f|
   = f.inputs do
-    = f.input :title
+    .two-column
+      = f.input :title
+      = f.input :keyword
     = f.input :content
 
   = f.actions do
