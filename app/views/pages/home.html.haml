@@ -28,18 +28,11 @@
 
 %section.content
   .wrapper
-    %article
-      %h1 Title of Something Exciting
-      %p Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something.
-      %p Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something.
-    %article
-      %h1 Title of Something Exciting
-      %p Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something.
-      %p Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something.
-    %article
-      %h1 Title of Something Exciting
-      %p Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something.
-      %p Text about the exciting something. More text about that exciting something. Text about the exciting something. More text about that exciting something.
+    - @articles.each do |article|
+      %article
+        %h1= article.title
+        %p= truncate(article.content, length: 400).html_safe
+        = link_to 'Read More »', article
 
 :javascript
   home.init()
