@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     @title = 'Home'
     @body_class = 'home'
     @answers = Answer.limit(6)
+    @articles = Article.limit(3)
   end
 
   def about
