@@ -24,17 +24,18 @@ footer
 
     input, textarea
       padding: 0.3846em 0.66667em
-      // background: rgba(255,255,255,0.75)
-      // color: $theme-dark-grey
       font-size: 1.3em
 
-      // &:focus
-      //   background: rgba(255,255,255,0.9)
+      &:focus
+        background: #131313
 
       &[type=submit]
         +buttonify(#e5e5e5,#c5c5c5)
         +box-shadow(rgba(255,255,255,0.35) 0 1px 0 0 inset, rgba(0,0,0,0.15) 0 1px 0)
         color: $theme-dark-grey
+
+        &:hover
+          +box-shadow(white 0 1px 0 0 inset, rgba(255,255,255,0.15) 0 1px 0)
 
   .foot
     clear: both
