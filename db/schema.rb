@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121028033500) do
+ActiveRecord::Schema.define(:version => 20121111225939) do
 
   create_table "answers", :force => true do |t|
     t.string   "question"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121028033500) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "keyword"
   end
 
   create_table "pages", :force => true do |t|
