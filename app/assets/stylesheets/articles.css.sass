@@ -1,0 +1,52 @@
+body.articles
+  article.article
+    width: 100%
+    margin-bottom: 1.5em
+    padding: 0
+    float: none
+    border-bottom: 2px solid $off-white
+
+    &.active
+      h1
+        cursor: default
+        &:before
+          top: 0.35em
+          border: 0.25em solid transparent
+          border-top-color: #333
+
+      p
+        display: block
+
+    h1
+      position: relative
+      cursor: pointer
+      font-size: 2em
+      text-indent: 0.75em
+
+      &:before
+        top: 0.25em
+        left: 0
+        position: absolute
+        clear: both
+        content: ''
+        display: block
+        border: 0.25em solid transparent
+        border-left-color: #333
+        +box-sizing(default)
+
+    p
+      display: none
+      font-size: 1.5em
+
+    .read-more
+      text-align: right
+
+body.articles .content
+  p
+    font-size: 1.5em
+
+  strong
+    color: #222
+    font-weight: bold
+    text-shadow: none
+
