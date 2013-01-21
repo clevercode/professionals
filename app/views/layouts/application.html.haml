@@ -39,6 +39,20 @@
     %footer
       .stitched-border
       .wrapper
+        %section.blurb
+          .portrait
+            %img{ src: '', alt: 'Dr. Nicoll' }
+          %p 
+            %a Dr. Nicoll
+            %span is currently located at St. Francis South. Previously he was practicing at South Crest for 9 years and has been in the field since 1992. Dr. Nicoll practices family medicine but also specializes in women's health and obstetrics. 
+
+        %p 
+          Warren Clinic 10507 East 91st Street
+          %br 
+          Tulsa, OK 74133
+          %br
+          Suite 550
+
         = semantic_form_for Question.new do |f|
           = f.inputs do
             .two-column
@@ -47,6 +61,8 @@
             = f.input :message, input_html: { rows: 2 }
           = f.actions do
             = f.action :submit, label: 'Ask a Question'
+
+        %p 918-307-3160
 
       .stitched-border
       .foot
