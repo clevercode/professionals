@@ -1,0 +1,15 @@
+%hgroup
+  %h1 Dr. Daniel Nicoll, DO
+  %h2 Administration
+
+= form_tag admin_sign_in_path, method: "post", class: 'sign-in'  do
+  %h3 Sign In
+  %ul
+    %li
+      = email_field_tag "email", "", placeholder: "you@example.com"
+    %li
+      = password_field_tag "password", "", placeholder: "password"
+
+  %ul
+    %li.action
+      = submit_tag t(:sign_in)
