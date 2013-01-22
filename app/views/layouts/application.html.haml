@@ -2,7 +2,8 @@
 %html
   %head
     %title Dr. Daniel Nicoll | #{@title}
-    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
+    %link{href: 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700', rel: 'stylesheet', type: 'text/css'}
     = javascript_include_tag 'application', 'http://use.typekit.com/gmo3gwp.js', 'http://underscorejs.org/underscore-min.js'
     = csrf_meta_tags
     %meta{ name: 'description', content: 'Latest updates and information about Dr. Daniel Nicoll, DO.' }
@@ -39,6 +40,29 @@
     %footer
       .stitched-border
       .wrapper
+        %section.blurb
+          .portrait
+            %img{ src: '../assets/images/dannicoll.jpg', alt: 'Dr. Nicoll' }
+
+          %p
+            Warren Clinic 
+            %br
+            10507 East 91st Street
+            %br 
+            Tulsa, OK 74133
+            %br
+            Suite 550
+
+          %p
+            %span 
+              Make an appointment
+            %br
+            918-307-3160
+
+        %p.pStyle
+          %a Dr. Nicoll
+          %span is currently located at St. Francis South. Previously he was practicing at South Crest for nine years and has been in the field since 1992. Dr. Nicoll practices family medicine but also specializes in women's health and obstetrics.
+
         = semantic_form_for Question.new do |f|
           = f.inputs do
             .two-column
