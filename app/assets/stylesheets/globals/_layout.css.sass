@@ -31,8 +31,12 @@ body
 .wrapper
   width: 90%
   max-width: 1050px
-  overflow: hidden
   margin: 30px auto 0px
+
+  &:after
+    clear: both
+    content: ''
+    display: block
 
 .dark-banner
   z-index: 100
