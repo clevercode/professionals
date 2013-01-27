@@ -1,6 +1,8 @@
 %section.header
   .wrapper
-    %h2 Question ##{@question.id}
+    %h2
+      Question from
+      = @question.name
 
 %section.content.show
   .wrapper
@@ -18,6 +20,16 @@
         ).
 
       %p.message-content= @question.message
+
+      - if @question.response?
+        %br
+        %p
+          You responded at
+          %strong= @question.updated_at.strftime '%I:%M %p'
+          on
+          %strong= @question.updated_at.strftime '%B %d'
+
+        %p.message-content= @question.response
 
     = semantic_form_for @question do |f|
       = f.inputs do
