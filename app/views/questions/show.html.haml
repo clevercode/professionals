@@ -21,24 +21,5 @@
 
       %p.message-content= @question.message
 
-      - if @question.response?
-        %br
-        %p
-          You responded at
-          %strong= @question.updated_at.strftime '%I:%M %p'
-          on
-          %strong= @question.updated_at.strftime '%B %d'
-
-        %p.message-content= @question.response
-
-    = semantic_form_for @question do |f|
-      = f.inputs do
-        = f.input :response, input_html: { rows: 5 }
-      = f.actions do
-        = f.action :submit, label: 'Respond'
-
-    = link_to 'Delete', @question, :confirm => 'Are you sure?', :method => :delete, class: 'delete'
-    = link_to 'Reply', '', class: 'reply'
-
 :javascript
   questions.init()

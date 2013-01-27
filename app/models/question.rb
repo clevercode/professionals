@@ -1,3 +1,3 @@
 class Question < ActiveRecord::Base
-  attr_accessible :email, :message, :name, :response
+  attr_accessible :email, :message, :name
 end
