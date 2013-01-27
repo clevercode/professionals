@@ -1,25 +1,18 @@
-%h1 Listing questions
+%section.header
+  .wrapper
+    %h2 Questions
+    %p
+      Below is a list of every question you've ever recieved. You should have
+      seen all of these already, as they were sent to your email address. Just
+      in case, however, you can also view them here, as well as respond to them.
 
-%table
-  %tr
-    %th Name
-    %th Email
-    %th Phone
-    %th Message
-    %th
-    %th
-    %th
-
-  - @questions.each do |question|
-    %tr
-      %td= question.name
-      %td= question.email
-      %td= question.phone
-      %td= question.message
-      %td= link_to 'Show', question
-      %td= link_to 'Edit', edit_question_path(question)
-      %td= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Question', new_question_path
+%section.content
+  .wrapper
+    %ol
+      - @questions.each do |question|
+        %li
+          = link_to question do
+            .name= question.name
+            .email= question.email
+            .message= truncate question.message, length: 100
+            .date= question.created_at.strftime '%b %d'

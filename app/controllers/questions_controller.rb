@@ -2,6 +2,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
+    @title = 'Questions'
+    @body_class = 'questions'
     @questions = Question.all
 
     respond_to do |format|
@@ -13,7 +15,9 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @body_class = 'questions'
     @question = Question.find(params[:id])
+    @title = "Question ##{@question.id}"
 
     respond_to do |format|
       format.html # show.html.erb

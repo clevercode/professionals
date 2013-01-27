@@ -1,0 +1,116 @@
+body.questions
+  .wrapper
+    position: relative
+
+  .content
+    ol
+      border-bottom: 1px solid #E0E3E9
+      list-style: none
+
+    li
+      display: block
+
+    a
+      display: block
+      background: #ECF0F5
+      border: 1px solid #E0E3E9
+      border-bottom: none
+      font-size: 1.6em
+      overflow: hidden
+
+      &:hover div
+        background: #F2F6FC
+        color: #333
+
+      div
+        float: left
+        width: 15%
+        padding: 0.7em
+        +box-shadow(#E0E3E9 -1px 0 1px inset)
+        color: #777
+        font-weight: 400
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+
+        &.email
+          width: 20%
+
+        &.message
+          width: 57%
+
+        &.date
+          width: 8%
+          +box-shadow(none)
+          text-align: right
+
+  .content.show
+    .question-detail
+      float: left
+
+    p.message-content
+      padding: 1em
+      background: #ECF0F5
+      border: 1px solid #E0E3E9
+      +border-radius(3px)
+
+    a
+      background: none
+      border: none
+      font:
+        size: 1.4em
+        weight: 400
+
+    .back
+      margin-bottom: 2em
+
+    .delete
+      +buttonify(saturate($red, 25%), shade($red, 15%))
+      clear: both
+      float: left
+      padding: 0.5em 1.25em
+      +border-radius(4px)
+      font:
+        size: 1.5em
+        weight: 400
+      text-shadow: shade($red, 50%) 0 0 2px
+
+      &:hover
+        text-decoration: none
+
+    .reply
+      +buttonify(saturate($theme, 25%), shade($theme, 15%))
+      float: right
+      padding: 0.5em 1.25em
+      +border-radius(4px)
+      font:
+        size: 1.5em
+        weight: 400
+      text-shadow: shade($theme, 50%) 0 0 2px
+
+      &:hover
+        text-decoration: none
+
+    form
+      top: 0
+      right: 0
+      position: absolute
+      width: 40%
+      display: none
+      padding: 2em
+      background: #ECF0F5
+      border: 1px solid #E0E3E9
+      +border-radius(3px)
+
+      label
+        color: #333
+        font-weight: 700
+
+      textarea, textarea:focus
+        background: #F2F6FC
+        border: 1px solid #E0E3E9
+        +box-shadow(none)
+        color: #333
+
+      input[type=submit]
+        +buttonify(saturate($theme, 25%), shade($theme, 15%))

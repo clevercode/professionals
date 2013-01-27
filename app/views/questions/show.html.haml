@@ -1,18 +1,32 @@
-%p#notice= notice
+%section.header
+  .wrapper
+    %h2 Question ##{@question.id}
 
-%p
-  %b Name:
-  = @question.name
-%p
-  %b Email:
-  = @question.email
-%p
-  %b Phone:
-  = @question.phone
-%p
-  %b Message:
-  = @question.message
+%section.content.show
+  .wrapper
+    .question-detail
+      = link_to 'Back to questions', questions_path, class: 'back'
+      %p
+        Message recieved at
+        %strong= @question.created_at.strftime '%I:%M %p'
+        on
+        %strong= @question.created_at.strftime '%B %d'
+        from
+        %strong= @question.name
+        (
+        = @question.email
+        ).
 
-= link_to 'Edit', edit_question_path(@question)
-\|
-= link_to 'Back', questions_path
+      %p.message-content= @question.message
+
+    = semantic_form_for @question do |f|
+      = f.inputs do
+        = f.input :response, input_html: { rows: 5 }
+      = f.actions do
+        = f.action :submit, label: 'Respond'
+
+    = link_to 'Delete', @question, :confirm => 'Are you sure?', :method => :delete, class: 'delete'
+    = link_to 'Reply', '', class: 'reply'
+
+:javascript
+  questions.init()
