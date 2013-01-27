@@ -14,12 +14,10 @@
       %article.article
         %h1= article.title
         - if article.content_too_long?
-          %p= truncate article.content, length: 275
+          %p= truncate article.content, length: 500
           %p.read-more= link_to 'Read more ››', article
         - else
           %p= article.formatted_content
 
 :javascript
   articles.init()
-
-  
