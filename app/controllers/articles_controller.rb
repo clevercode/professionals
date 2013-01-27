@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
   def show
     @body_class = 'articles'
     @article = Article.find(params[:id])
-    @title = "Article ##{@article.id}"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,6 +27,8 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   # GET /articles/new.json
   def new
+    @body_class = 'articles'
+    @title = 'New Article'
     @article = Article.new
 
     respond_to do |format|
@@ -38,7 +39,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @body_class = 'articles'
     @article = Article.find(params[:id])
+    @title = "Article ##{@article.id}"
   end
 
   # POST /articles

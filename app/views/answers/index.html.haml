@@ -13,11 +13,9 @@
     - @answers.each do |answer, index|
       %article.answer
         %h1= answer.question
-        - if answer.content_too_long?
-          %p= truncate answer.content, length: 500
+        .markdown
+          %p= redcarpet truncate answer.content, length: 400
           %p.read-more= link_to 'Read more ››', answer
-        - else
-          %p= answer.formatted_content
 
 :javascript
   answers.init()

@@ -1,8 +1,9 @@
 %section.header
   .wrapper
-    %h2= @article.title
 
-%section.content
+%section.content.show
   .wrapper
-    %p= link_to '‹‹ Go back', articles_path
-    %p= @article.formatted_content
+    %p.back= link_to '‹‹ Go back', articles_path
+    %h1= @article.title
+    .markdown
+      %p= redcarpet @article.content

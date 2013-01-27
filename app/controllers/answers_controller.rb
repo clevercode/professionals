@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @body_class = 'answers'
+    @body_class = 'faq'
     @answer = Answer.find(params[:id])
     @title = "Answer ##{@answer.id}"
 
@@ -18,6 +18,8 @@ class AnswersController < ApplicationController
   end
 
   def new
+    @body_class = 'faq'
+    @title = 'New FAQ'
     @answer = Answer.new
 
     respond_to do |format|
@@ -27,7 +29,9 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @body_class = 'faq'
     @answer = Answer.find(params[:id])
+    @title = "Answer ##{@answer.id}"
   end
 
   def create

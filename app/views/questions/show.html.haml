@@ -7,7 +7,7 @@
 %section.content.show
   .wrapper
     .question-detail
-      = link_to 'Back to questions', questions_path, class: 'back'
+      = link_to '‹‹ Back to questions', questions_path, class: 'back'
       %p
         Message recieved at
         %strong= @question.created_at.strftime '%I:%M %p'

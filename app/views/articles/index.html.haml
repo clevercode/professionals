@@ -12,12 +12,10 @@
   .wrapper
     - @articles.each do |article, index|
       %article.article
-        %h1= article.title
-        - if article.content_too_long?
-          %p= truncate article.content, length: 500
-          %p.read-more= link_to 'Read more ››', article
-        - else
-          %p= article.formatted_content
+        = link_to article do
+          %h1= article.title
+          .markdown
+            %p= redcarpet truncate article.content, length: 400
 
 :javascript
   articles.init()

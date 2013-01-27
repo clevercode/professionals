@@ -16,7 +16,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails', '~> 1.0.3'
-
 end
 
 gem 'thin'
@@ -26,3 +25,6 @@ gem 'haml-rails',   '~> 0.3.4'
 gem 'formtastic',   '~> 2.2.1' # Semantic Form Helper
 gem 'bcrypt-ruby',  '~> 3.0.1' # for passwords
 gem 'strong_parameters'
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'

@@ -1,42 +1,26 @@
 body.articles
   article.article
-    width: 100%
-    margin-bottom: 1.5em
+    margin-bottom: 2em
     padding: 0
-    float: none
-    border-bottom: 2px solid $off-white
 
-    &.active
-      h1
-        cursor: default
+    a
+      display: block
+      padding: 1em
+      background: hsl(215, 17%, 95%)
+      +box-shadow(hsl(215, 17%, 90%) 0 0 0 1px)
+      +border-radius(3px)
+      font-size: 1em
+      text-align: left
 
-        &:before
-          top: 0.35em
-          border: 0.25em solid transparent
-          border-top-color: #333
-
-      p
-        display: block
+      &:hover
+        background: hsl(215, 17%, 98%)
+        text-decoration: none
 
     h1
-      position: relative
       cursor: pointer
       font-size: 2em
-      text-indent: 0.75em
-
-      &:before
-        top: 0.25em
-        left: 0
-        position: absolute
-        clear: both
-        content: ''
-        display: block
-        border: 0.25em solid transparent
-        border-left-color: #333
-        +box-sizing(default)
 
     p
-      display: none
       font-size: 1.6em
 
     .read-more
@@ -46,8 +30,49 @@ body.articles
       a
         font-size: 1em
 
-  .content strong
-    color: #222
-    font-weight: 700
-    text-shadow: none
+  .content
+    &.show
+      h1
+        margin-bottom: 1em
+        color: #333
+        font-size: 2.6em
+        font-weight: 400
+        text-align: center
+
+      .back
+        top: 0
+        left: 0
+        position: absolute
+
+    .wrapper
+      position: relative
+
+    strong
+      color: #222
+      font-weight: 700
+      text-shadow: none
+
+    form
+      float: left
+      width: 72%
+
+    .legend
+      top: 0
+      right: 0
+      bottom: 0
+      position: absolute
+      width: 25%
+      padding: 2em
+      background: hsl(215, 17%, 92%)
+      border: 1px solid hsl(215, 17%, 87%)
+      +border-radius(3px)
+
+      h1
+        margin-bottom: 0.5em
+        padding-bottom: 0.25em
+        border-bottom: 1px solid hsl(215, 17%, 86%)
+        color: #333
+        font:
+          size: 2.4em
+          weight: 400
 

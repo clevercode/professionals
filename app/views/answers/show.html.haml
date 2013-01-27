@@ -1,8 +1,9 @@
 %section.header
   .wrapper
-    %h2= @answer.question
 
-%section.content
+%section.content.show
   .wrapper
-    %p= link_to '‹‹ Go back', answers_path
-    %p= @answer.formatted_content
+    %p.back= link_to '‹‹ Go back', answers_path
+    %h1= @answer.question
+    .markdown
+      %p= redcarpet @answer.content
