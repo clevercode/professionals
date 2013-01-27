@@ -28,13 +28,13 @@
     %header
       .wrapper
         %h1
-          = link_to 'Dr. Daniel Nicoll, DO', '/'
+          = link_to 'Dr. Daniel Nicoll, DO', root_path
           %aside |&nbsp;&nbsp;&nbsp;Family Practice & Obstetrics
         %nav
-          =link_to 'Home', '/', class: @body_class == 'home' ? 'current' : ''
-          =link_to 'About', '/about', class: @body_class == 'about' ? 'current' : ''
-          =link_to 'FAQ', '/answers', class: @body_class == 'faq' ? 'current' : ''
-          =link_to 'Articles', '/articles', class: @body_class == 'articles' ? 'current' : ''
+          =link_to 'Home', root_path, class: @body_class == 'home' ? 'current' : ''
+          =link_to 'About', about_path, class: @body_class == 'about' ? 'current' : ''
+          =link_to 'FAQ', answers_path, class: @body_class == 'faq' ? 'current' : ''
+          =link_to 'Articles', articles_path, class: @body_class == 'articles' ? 'current' : ''
 
     = yield
 
