@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    path = params[:question][:path]
+    path = params[:path]
     @question = Question.new(params[:question])
 
     respond_to do |format|
