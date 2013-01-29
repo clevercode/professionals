@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   def index
     @title = 'Questions'
     @body_class = 'questions'
-    @questions = Question.all
+    @questions = Question.order('created_at DESC').paginate page: params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +44,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
+    path = params[:question][:path]
     @question = Question.new(params[:question])
 
     respond_to do |format|
@@ -51,7 +52,7 @@ class QuestionsController < ApplicationController
         # Tell the AdminMailer to send a question email after save
         AdminMailer.question_email(@question).deliver
 
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to path, notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }

@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   def index
     @title = 'FAQ'
     @body_class = 'faq'
-    @answers =Answer.all
+    @answers = Answer.paginate page: params[:page]
   end
 
   def show

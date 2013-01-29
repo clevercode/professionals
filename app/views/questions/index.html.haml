@@ -4,10 +4,11 @@
     %p
       Below is a list of every question you've ever recieved. You should have
       seen all of these already, as they were sent to your email address. Just
-      in case, however, you can also view them here, as well as respond to them.
+      in case, however, you can also view them here.
 
 %section.content
   .wrapper
+    = will_paginate @questions
     %ol
       - @questions.each do |question|
         %li
@@ -16,3 +17,5 @@
             .email= question.email
             .message= truncate question.message, length: 100
             .date= question.created_at.strftime '%b %d'
+
+    = will_paginate @questions

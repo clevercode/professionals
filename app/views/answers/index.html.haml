@@ -10,12 +10,15 @@
 
 %section.content
   .wrapper
+    = will_paginate @answers
     - @answers.each do |answer, index|
       %article.answer
         %h1= answer.question
         .markdown
           %p= redcarpet truncate answer.content, length: 400
           %p.read-more= link_to 'Read more ››', answer
+
+    = will_paginate @answers
 
 :javascript
   answers.init()

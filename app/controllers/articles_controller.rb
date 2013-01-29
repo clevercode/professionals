@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @title = 'Articles'
     @body_class = 'articles'
-    @articles = Article.order :keyword
+    @articles = Article.paginate page: params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

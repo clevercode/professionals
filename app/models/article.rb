@@ -1,3 +1,7 @@
 class Article < ActiveRecord::Base
-  attr_accessible :content, :title, :keyword
+  attr_accessible :content, :title
+
+  # Number of articles per page
+  self.per_page = 9
+
 end

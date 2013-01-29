@@ -65,6 +65,7 @@
           %span is currently located at St. Francis South. Previously he was practicing at South Crest for nine years and has been in the field since 1992. Dr. Nicoll practices family medicine but also specializes in women's health and obstetrics.
 
         = semantic_form_for Question.new do |f|
+          %input{ name: 'path', type: 'hidden', value: request.fullpath }
           = f.inputs do
             .two-column
               = f.input :name, placeholder: 'Your Name'
