@@ -16,8 +16,8 @@ Drdannicoll::Application.routes.draw do
     resources :questions, :articles, :answers, :module => nil
   end
 
-  resources :questions
-  resources :articles
-  resources :answers
+  resources :questions, :articles, :answers do
+    get 'search', on: :collection
+  end
 
 end
