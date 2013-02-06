@@ -87,4 +87,19 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def search
+    @showAll = false
+    @maxArticles = Article.count
+    query = params[:q]
+    if query.empty?
+      @showAll = true
+      @articles = Article.paginate page: 1
+    else
+      @articles = Article.search_by_title(query).paginate page: 1
+    end
+
+    @noResults = @articles.size < 1
+    respond_to :js
+  end
 end

@@ -1,0 +1,5 @@
+%article.article
+  = link_to article do
+    %h1= article.title
+    .markdown
+      %p= redcarpet truncate article.content, length: 400

@@ -1,0 +1,13 @@
+var answers = "#{ escape_javascript(render @answers) }";
+var $container = $('.content').children('.wrapper');
+
+$container.find('.pagination').css('visibility','hidden');
+$container.find('article').remove();
+
+if (#{@noResults}) {
+$container.append('<article><h1 class="no-results">No results</h1></article>');
+} else {
+if (#{@showAll}) $container.find('.pagination').css('visibility','visible');
+$container.find('form').after(answers);
+$container.children('.answer').first().addClass('active');
+}

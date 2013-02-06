@@ -68,3 +68,25 @@ form.multi-step
     &.step-1
       display: block
 
+form#search
+  top: 0
+  right: 0
+  position: absolute
+  float: none
+  width: 10em
+  padding: 0
+  background: none
+  border: none
+  +border-radius(none)
+  +single-transition(width, 300ms, ease-out)
+
+  input
+    display: block
+    width: 100%
+    background: hsl(215, 17%, 100%)
+    color: #333
+    font-size: 1.6em
+    +italic-placeholders()
+
+    &:focus
+      outline: none

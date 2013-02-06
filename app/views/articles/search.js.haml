@@ -1,0 +1,13 @@
+var articles = "#{ escape_javascript(render @articles) }";
+var $container = $('.content').children('.wrapper');
+
+$container.find('.pagination').css('visibility','hidden');
+$container.find('article, h1.no-results').remove();
+
+if (#{@noResults}) {
+$container.append('<h1 class="no-results">No results</h1>');
+} else {
+if (#{@showAll}) $container.find('.pagination').css('visibility','visible');
+$container.find('form').after(articles);
+$container.children('.article').first().addClass('active');
+}

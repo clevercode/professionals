@@ -71,4 +71,19 @@ class AnswersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def search
+    @showAll = false
+    @maxAnswers = Answer.count
+    query = params[:q]
+    if query.empty?
+      @showAll = true
+      @answers = Answer.paginate page: 1
+    else
+      @answers = Answer.search_by_question(query).paginate page: 1
+    end
+
+    @noResults = @answers.size < 1
+    respond_to :js
+  end
 end

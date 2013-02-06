@@ -1,5 +1,5 @@
 body.faq
-  article.answer
+  article
     width: 100%
     margin-bottom: 1.5em
     padding: 0
@@ -33,6 +33,9 @@ body.faq
         border: 0.25em solid transparent
         border-left-color: #333
         +box-sizing(default)
+
+      &.no-results:before
+        display: none
 
     p
       display: none
