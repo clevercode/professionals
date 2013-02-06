@@ -9,13 +9,9 @@
 %section.content
   .wrapper
     = will_paginate @questions
-    %ol
-      - @questions.each do |question|
-        %li
-          = link_to question do
-            .name= question.name
-            .email= question.email
-            .message= truncate question.message, length: 100
-            .date= question.created_at.strftime '%b %d'
-
+    = render 'partials/search_form', search_path: search_questions_path
+    %ol= render @questions
     = will_paginate @questions
+
+:javascript
+  window.search = new Search('#search')

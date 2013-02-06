@@ -88,4 +88,19 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def search
+    @showAll = false
+    @maxQuestions = Question.count
+    query = params[:q]
+    if query.empty?
+      @showAll = true
+      @questions = Question.order('created_at DESC').paginate page: 1
+    else
+      @questions = Question.search_by_name_or_email(query).paginate page: 1
+    end
+
+    @noResults = @questions.size < 1
+    respond_to :js
+  end
 end
