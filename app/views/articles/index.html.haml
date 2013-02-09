@@ -10,6 +10,7 @@
 
 %section.content
   .wrapper
+    = link_to 'Create New', new_article_path, class: 'create-button'
     = render 'partials/search_form', search_path: search_articles_path
     = render @articles
     = will_paginate @articles

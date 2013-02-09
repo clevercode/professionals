@@ -6,6 +6,6 @@ class Administrator < ActiveRecord::Base
 
   def self.authenticate(email, password)
     admin = find_by_email(email)
-    admin.authenticate(password)
+    admin.authenticate(password) unless admin.nil?
   end
 end

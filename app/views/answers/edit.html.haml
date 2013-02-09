@@ -1,6 +1,9 @@
 %section.header
   .wrapper
-    %h2 Editing answer
+    %h2 Editing Frequently Asked Question
 
+%section.content.edit
+  .wrapper
+    %p.back= link_to '‹‹ Go back', answers_path
     = render 'form'
     = render 'partials/markdown_legend'

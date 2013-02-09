@@ -37,6 +37,12 @@ body.faq
       &.no-results:before
         display: none
 
+      a
+        float: right
+        display: inline
+        font-weight: 500
+        font-size: 0.75em
+
     p
       display: none
       font-size: 1.6em
@@ -48,6 +54,10 @@ body.faq
         font-size: 1em
 
   .content
+    &.edit, &.new
+      .back
+        position: static
+
     &.show
       h1
         margin-bottom: 1em
@@ -72,24 +82,4 @@ body.faq
     form
       float: left
       width: 72%
-
-    .legend
-      top: 0
-      right: 0
-      bottom: 0
-      position: absolute
-      width: 25%
-      padding: 2em
-      background: hsl(215, 17%, 92%)
-      border: 1px solid hsl(215, 17%, 87%)
-      +border-radius(3px)
-
-      h1
-        margin-bottom: 0.5em
-        padding-bottom: 0.25em
-        border-bottom: 1px solid hsl(215, 17%, 86%)
-        color: #333
-        font:
-          size: 2.4em
-          weight: 400
 

@@ -1,5 +1,12 @@
 %article.answer
-  %h1= answer.question
+  %h1
+    = answer.question
+    - if current_user
+      = link_to 'Edit', edit_answer_path(answer)
+
   .markdown
     %p= redcarpet truncate answer.content, length: 400
-    %p.read-more= link_to 'Read more ››', answer
+    - if current_user
+      %p.read-more= link_to 'Read more ››', edit_answer_path(answer)
+    - else
+      %p.read-more= link_to 'Read more ››', answer

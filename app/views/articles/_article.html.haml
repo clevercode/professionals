@@ -1,5 +1,11 @@
 %article.article
-  = link_to article do
-    %h1= article.title
-    .markdown
-      %p= redcarpet truncate article.content, length: 400
+  - if current_user
+    = link_to edit_article_path(article) do
+      %h1= article.title
+      .markdown
+        %p= redcarpet truncate article.content, length: 400
+  - else
+    = link_to article do
+      %h1= article.title
+      .markdown
+        %p= redcarpet truncate article.content, length: 400

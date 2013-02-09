@@ -2,6 +2,7 @@ Drdannicoll::Application.routes.draw do
 
   root :to => 'pages#home'
 
+  get '/home' => 'pages#home'
   get '/about' => 'pages#about'
   get '/faq' => 'pages#faq'
   get '/contact' => 'pages#contact'
@@ -9,9 +10,9 @@ Drdannicoll::Application.routes.draw do
   namespace :admin do
     get  'sign-in' => 'sessions#new', as: 'sign_in'
     post 'sign-in' => 'sessions#create'
-    post 'sign-out' => 'sessions#destroy', as: 'sign_out'
+    get 'sign-out' => 'sessions#destroy', as: 'sign_out'
 
-    root :to => 'articles#index'
+    root :to => 'answers#index'
 
     resources :questions, :articles, :answers, :module => nil
   end

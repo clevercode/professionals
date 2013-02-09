@@ -2,7 +2,8 @@
   .wrapper
     %h2 Editing article
 
-%section.content.show
+%section.content.edit
   .wrapper
+    %p.back= link_to '‹‹ Go back', articles_path
     = render 'form'
     = render 'partials/markdown_legend'

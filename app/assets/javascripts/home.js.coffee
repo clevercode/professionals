@@ -15,6 +15,7 @@ window.home =
 
   slideLeft: ->
     images = @gallery.find 'li'
+    return if images.length < 6
     $(images[0]).removeClass('prev').remove().appendTo @gallery
     $(images[1]).removeClass('left').addClass 'prev'
     $(images[2]).removeClass('current').addClass 'left'
