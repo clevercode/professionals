@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   def show
     @body_class = 'articles'
     @article = Article.find(params[:id])
+    @title = "Article ##{@article.id}"
 
     respond_to do |format|
       format.html # show.html.erb
