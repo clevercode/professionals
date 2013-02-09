@@ -22,10 +22,14 @@
   .stitched-border
   .wrapper
     - @answers.each do |answer|
-      = link_to answer do
-        = image_tag ''
-        %h1= answer.question
-        %p= truncate answer.content, length: 80
+      - if current_user
+        = link_to edit_answer_path(answer) do
+          %h1= answer.question
+          %p= truncate answer.content, length: 80
+      - else
+        = link_to answer do
+          %h1= answer.question
+          %p= truncate answer.content, length: 80
   .stitched-border
 
 %section.content
@@ -34,7 +38,10 @@
       %article
         %h1= article.title
         %p= truncate(article.content, length: 400).html_safe
-        = link_to 'Read More »', article
+        - if current_user
+          = link_to 'Read More »', edit_article_path(article)
+        - else
+          = link_to 'Read More »', article
 
 :javascript
   home.init()
