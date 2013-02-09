@@ -1,8 +1,12 @@
 class QuestionsController < ApplicationController
+  before_filter :authorize, except: [:create]
+
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @title = 'Questions'
+    @body_class = 'questions'
+    @questions = Question.order('created_at DESC').paginate page: params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +17,9 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @body_class = 'questions'
     @question = Question.find(params[:id])
+    @title = "Question ##{@question.id}"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,11 +46,15 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
+    path = params[:path]
     @question = Question.new(params[:question])
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        # Tell the AdminMailer to send a question email after save
+        AdminMailer.question_email(@question).deliver
+
+        format.html { redirect_to path, notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }
@@ -79,5 +89,20 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @showAll = false
+    @maxQuestions = Question.count
+    query = params[:q]
+    if query.empty?
+      @showAll = true
+      @questions = Question.order('created_at DESC').paginate page: 1
+    else
+      @questions = Question.search_by_name_or_email(query).paginate page: 1
+    end
+
+    @noResults = @questions.size < 1
+    respond_to :js
   end
 end

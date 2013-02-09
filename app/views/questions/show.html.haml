@@ -1,18 +1,25 @@
-%p#notice= notice
+%section.header
+  .wrapper
+    %h2
+      Question from
+      = @question.name
 
-%p
-  %b Name:
-  = @question.name
-%p
-  %b Email:
-  = @question.email
-%p
-  %b Phone:
-  = @question.phone
-%p
-  %b Message:
-  = @question.message
+%section.content.show
+  .wrapper
+    .question-detail
+      = link_to '‹‹ Back to questions', questions_path, class: 'back'
+      %p
+        Message recieved at
+        %strong= @question.created_at.strftime '%I:%M %p'
+        on
+        %strong= @question.created_at.strftime '%B %d'
+        from
+        %strong= @question.name
+        (
+        = @question.email
+        ).
 
-= link_to 'Edit', edit_question_path(@question)
-\|
-= link_to 'Back', questions_path
+      %p.message-content= @question.message
+
+:javascript
+  questions.init()

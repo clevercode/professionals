@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
+  before_filter :authorize, except: [:index, :show]
+
   # GET /articles
   # GET /articles.json
   def index
     @title = 'Articles'
     @body_class = 'articles'
-    @articles = Article.order :keyword
+    @articles = Article.paginate page: params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +30,8 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   # GET /articles/new.json
   def new
+    @body_class = 'articles'
+    @title = 'New Article'
     @article = Article.new
 
     respond_to do |format|
@@ -38,7 +42,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @body_class = 'articles'
     @article = Article.find(params[:id])
+    @title = "Article ##{@article.id}"
   end
 
   # POST /articles
@@ -83,5 +89,20 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @showAll = false
+    @maxArticles = Article.count
+    query = params[:q]
+    if query.empty?
+      @showAll = true
+      @articles = Article.paginate page: 1
+    else
+      @articles = Article.search_by_title(query).paginate page: 1
+    end
+
+    @noResults = @articles.size < 1
+    respond_to :js
   end
 end

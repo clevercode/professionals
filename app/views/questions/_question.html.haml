@@ -1,0 +1,6 @@
+%li
+  = link_to question do
+    .name= question.name
+    .email= question.email
+    .message= truncate question.message, length: 100
+    .date= question.created_at.strftime '%b %d'

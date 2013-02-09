@@ -1,0 +1,45 @@
+%footer
+  .stitched-border
+  .wrapper
+    %section.blurb
+      .portrait
+        %img{ src: '../assets/images/dannicoll.jpg', alt: 'Dr. Nicoll' }
+
+      %p
+        Warren Clinic 
+        %br
+        10507 East 91st Street
+        %br 
+        Tulsa, OK 74133
+        %br
+        Suite 550
+
+      %p
+        %span 
+          Make an appointment
+        %br
+        918-307-3160
+
+    %p.pStyle
+      %a Dr. Nicoll
+      %span is currently located at St. Francis South. Previously he was practicing at South Crest for nine years and has been in the field since 1992. Dr. Nicoll practices family medicine but also specializes in women's health and obstetrics.
+
+    = semantic_form_for Question.new do |f|
+      %input{ name: 'path', type: 'hidden', value: request.fullpath }
+      = f.inputs do
+        .two-column
+          = f.input :name, placeholder: 'Your Name'
+          = f.input :email, placeholder: 'Email Address'
+        = f.input :message, input_html: { rows: 2 }
+      = f.actions do
+        = f.action :submit, label: 'Ask a Question'
+
+  .stitched-border
+  .foot
+    .wrapper
+      %p.copyright
+        © 2012
+        = link_to 'Dr. Dan Nicoll.', admin_sign_in_path
+        All Rights Reserved.
+      %p.crafted
+        crafted by cleverCode

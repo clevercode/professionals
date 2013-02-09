@@ -1,5 +1,5 @@
 body.faq
-  article.answer
+  article
     width: 100%
     margin-bottom: 1.5em
     padding: 0
@@ -34,19 +34,52 @@ body.faq
         border-left-color: #333
         +box-sizing(default)
 
+      &.no-results:before
+        display: none
+
+      a
+        float: right
+        display: inline
+        font-weight: 500
+        font-size: 0.75em
+
     p
       display: none
-      font-size: 1.5em
+      font-size: 1.6em
 
     .read-more
       text-align: right
 
-body.answers .content
-  p
-    font-size: 1.5em
+      a
+        font-size: 1em
 
-  strong
-    color: #222
-    font-weight: 700
-    text-shadow: none
+  .content
+    &.edit, &.new
+      .back
+        position: static
+
+    &.show
+      h1
+        margin-bottom: 1em
+        color: #333
+        font-size: 2.6em
+        font-weight: 400
+        text-align: center
+
+      .back
+        top: 0
+        left: 0
+        position: absolute
+
+    .wrapper
+      position: relative
+
+    strong
+      color: #222
+      font-weight: 700
+      text-shadow: none
+
+    form
+      float: left
+      width: 72%
 

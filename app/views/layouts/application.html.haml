@@ -4,6 +4,7 @@
     %title Dr. Daniel Nicoll | #{@title}
     = stylesheet_link_tag 'application', media: 'all'
     %link{href: 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700', rel: 'stylesheet', type: 'text/css'}
+    %link{href: 'http://fonts.googleapis.com/css?family=Crete+Round', rel: 'stylesheet', type: 'text/css'}
     = javascript_include_tag 'application', 'http://use.typekit.com/gmo3gwp.js', 'http://underscorejs.org/underscore-min.js'
     = csrf_meta_tags
     %meta{ name: 'description', content: 'Latest updates and information about Dr. Daniel Nicoll, DO.' }
@@ -24,61 +25,6 @@
       })();
 
   %body{ class: @body_class }
-    %header
-      .wrapper
-        %h1
-          = link_to 'Dr. Daniel Nicoll, DO', '/'
-          %aside |&nbsp;&nbsp;&nbsp;Family Practice & Obstetrics
-        %nav
-          =link_to 'Home', '/', class: @body_class == 'home' ? 'current' : ''
-          =link_to 'About', '/about', class: @body_class == 'about' ? 'current' : ''
-          =link_to 'FAQ', '/answers', class: @body_class == 'faq' ? 'current' : ''
-          =link_to 'Articles', '/articles', class: @body_class == 'articles' ? 'current' : ''
-
+    = render 'partials/header'
     = yield
-
-    %footer
-      .stitched-border
-      .wrapper
-        %section.blurb
-          .portrait
-            %img{ src: '../assets/images/dannicoll.jpg', alt: 'Dr. Nicoll' }
-
-          %p
-            Warren Clinic 
-            %br
-            10507 East 91st Street
-            %br 
-            Tulsa, OK 74133
-            %br
-            Suite 550
-
-          %p
-            %span 
-              Make an appointment
-            %br
-            918-307-3160
-
-        %p.pStyle
-          %a Dr. Nicoll
-          %span is currently located at St. Francis South. Previously he was practicing at South Crest for nine years and has been in the field since 1992. Dr. Nicoll practices family medicine but also specializes in women's health and obstetrics.
-
-        = semantic_form_for Question.new do |f|
-          = f.inputs do
-            .two-column
-              = f.input :name, placeholder: 'Your Name'
-              = f.input :email, placeholder: 'Email Address'
-            = f.input :message, input_html: { rows: 2 }
-          = f.actions do
-            = f.action :submit, label: 'Ask a Question'
-
-      .stitched-border
-      .foot
-        .wrapper
-          %p.copyright
-            © 2012
-            %span Dr. Daniel Nicoll.
-            All Rights Reserved.
-          %p.crafted
-            crafted by cleverCode
-
+    = render 'partials/footer'

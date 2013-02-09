@@ -1,0 +1,10 @@
+var questions = "#{ escape_javascript(render @questions) }";
+var $container = $('.content').find('.wrapper');
+$container.find('.pagination').css('visibility','hidden');
+
+if (#{@noResults}) {
+$container.find('ol').html('<li class="no-results">No results</li>');
+} else {
+if (#{@showAll}) $container.find('.pagination').css('visibility','visible');
+$container.find('ol').html(questions);
+}

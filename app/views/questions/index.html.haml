@@ -1,25 +1,16 @@
-%h1 Listing questions
+%section.header
+  .wrapper
+    %h2 Questions
+    %p
+      Below is a list of every question you've ever recieved. You should have
+      seen all of these already, as they were sent to your email address. Just
+      in case, however, you can also view them here.
 
-%table
-  %tr
-    %th Name
-    %th Email
-    %th Phone
-    %th Message
-    %th
-    %th
-    %th
+%section.content
+  .wrapper
+    = render 'partials/search_form', search_path: search_questions_path
+    %ol= render @questions
+    = will_paginate @questions
 
-  - @questions.each do |question|
-    %tr
-      %td= question.name
-      %td= question.email
-      %td= question.phone
-      %td= question.message
-      %td= link_to 'Show', question
-      %td= link_to 'Edit', edit_question_path(question)
-      %td= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Question', new_question_path
+:javascript
+  window.search = new Search('#search')

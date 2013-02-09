@@ -10,16 +10,13 @@
 
 %section.content
   .wrapper
-    - @articles.each do |article, index|
-      %article.article
-        %h1= article.title
-        - if article.content_too_long?
-          %p= truncate article.content, length: 275
-          %p.read-more= link_to 'Read more ››', article
-        - else
-          %p= article.formatted_content
+    - if current_user
+      = link_to 'Create New', new_article_path, class: 'create-button'
+
+    = render 'partials/search_form', search_path: search_articles_path
+    = render @articles
+    = will_paginate @articles
 
 :javascript
   articles.init()
-
-  
+  window.search = new Search('#search')

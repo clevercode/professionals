@@ -1,13 +1,14 @@
 class AnswersController < ApplicationController
+  before_filter :authorize, except: [:index, :show]
 
   def index
     @title = 'FAQ'
     @body_class = 'faq'
-    @answers =Answer.all
+    @answers = Answer.paginate page: params[:page]
   end
 
   def show
-    @body_class = 'answers'
+    @body_class = 'faq'
     @answer = Answer.find(params[:id])
     @title = "Answer ##{@answer.id}"
 
@@ -18,6 +19,8 @@ class AnswersController < ApplicationController
   end
 
   def new
+    @body_class = 'faq'
+    @title = 'New FAQ'
     @answer = Answer.new
 
     respond_to do |format|
@@ -27,7 +30,9 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @body_class = 'faq'
     @answer = Answer.find(params[:id])
+    @title = "Answer ##{@answer.id}"
   end
 
   def create
@@ -66,5 +71,20 @@ class AnswersController < ApplicationController
       format.html { redirect_to answers_url }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @showAll = false
+    @maxAnswers = Answer.count
+    query = params[:q]
+    if query.empty?
+      @showAll = true
+      @answers = Answer.paginate page: 1
+    else
+      @answers = Answer.search_by_question(query).paginate page: 1
+    end
+
+    @noResults = @answers.size < 1
+    respond_to :js
   end
 end

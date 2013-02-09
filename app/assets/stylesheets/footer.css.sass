@@ -3,7 +3,7 @@ footer
   right: 0
   bottom: 0
   position: absolute
-  height: 45.7em
+  height: 40.1em
   overflow: hidden
   font-size: 1em
   background: $theme-dark-grey image-url('footer-background.jpg') repeat 0 0
@@ -16,6 +16,8 @@ footer
       float: left
       width: 10%
       height: 100px
+      border: 2px solid #fff
+      overflow: hidden
 
       img
         width: 100%
@@ -34,6 +36,7 @@ footer
       font-size: 2em
       font-weight: 400
       text-align: right
+
       span
         font-size: 1.5em
         font-weight: 200
@@ -41,7 +44,6 @@ footer
   form
     width: 40%
     float: right
-    padding-top: 30px
 
     li
       margin-bottom: 1em
@@ -52,17 +54,6 @@ footer
     input, textarea
       padding: 0.3846em 0.66667em
       font-size: 1.3em
-
-      &:focus
-        background: #131313
-
-      &[type=submit]
-        +buttonify(#e5e5e5,#c5c5c5)
-        +box-shadow(rgba(255,255,255,0.35) 0 1px 0 0 inset, rgba(0,0,0,0.15) 0 1px 0)
-        color: $theme-dark-grey
-
-        &:hover
-          +box-shadow(white 0 1px 0 0 inset, rgba(255,255,255,0.15) 0 1px 0)
 
   p.pStyle
     padding: 30px 0 0 0
@@ -86,11 +77,14 @@ footer
     float: left
     color: $grey
     margin: 0
-    font-size: 1.1em
+    font-size: 1.3em
 
     &.crafted
       float: right
 
-    span
+    a
       color: $white
+      text-decoration: none
 
+      &:active
+        text-decoration: underline

@@ -1,11 +1,15 @@
 class Answer < ActiveRecord::Base
   attr_accessible :content, :question
 
-  def formatted_content
-    self.content.gsub(/\n/, '<br/>').html_safe
-  end
+  # Number of articles per page
+  self.per_page = 10
 
-  def content_too_long?
-    self.content.length > 200
-  end
+  # Search
+  include PgSearch
+  pg_search_scope :search_by_question,
+                  :against => :question,
+                  :using => {
+                    :tsearch => { prefix: true }
+                  }
+
 end

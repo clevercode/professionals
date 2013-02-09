@@ -10,16 +10,15 @@
 
 %section.content
   .wrapper
-    - @answers.each do |answer, index|
-      %article.answer
-        %h1= answer.question
-        - if answer.content_too_long?
-          %p= truncate answer.content, length: 275
-          %p.read-more= link_to 'Read more ››', answer
-        - else
-          %p= answer.formatted_content
+    - if current_user
+      = link_to 'Create New', new_answer_path, class: 'create-button'
+
+    = render 'partials/search_form', search_path: search_answers_path
+    = render @answers
+    = will_paginate @answers
 
 :javascript
   answers.init()
+  window.search = new Search('#search')
 
   

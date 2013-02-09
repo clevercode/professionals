@@ -1,11 +1,15 @@
 class Article < ActiveRecord::Base
-  attr_accessible :content, :title, :keyword
+  attr_accessible :content, :title
 
-  def formatted_content
-    self.content.gsub(/\n/, '<br/>').html_safe
-  end
+  # Number of articles per page
+  self.per_page = 6
 
-  def content_too_long?
-    self.content.length > 200
-  end
+  # Search
+  include PgSearch
+  pg_search_scope :search_by_title,
+                  :against => [:title, :content],
+                  :using => {
+                    :tsearch => { prefix: true }
+                  }
+
 end

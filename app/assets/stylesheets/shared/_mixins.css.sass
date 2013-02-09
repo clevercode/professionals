@@ -8,7 +8,7 @@
   +background(linear-gradient($top, $bottom))
   border: 1px solid $bottom
   border-bottom-color: darken($bottom, 5%)
-  +box-shadow(rgba(255,255,255,0.35) 0 1px 0 0 inset, rgba(255,255,255,0.15) 0 1px 0)
+  +box-shadow(rgba(255,255,255,0.25) 0 1px 0 0 inset, rgba(255,255,255,0.15) 0 1px 0)
   color: white
   text-align: center
   text-shadow: $bottom 0 -1px 0
@@ -22,3 +22,19 @@
     +background(linear-gradient($top, $bottom))
     +box-shadow($bottom 0 0 8px 4px inset, rgba(255,255,255,0.15) 0 1px 0)
 
+=italic-placeholders()
+  &::-webkit-input-placeholder
+    font-family: Georgia
+    font-style: italic
+
+  &:-moz-placeholder
+    font-family: Georgia
+    font-style: italic
+
+  &::-moz-placeholder
+    font-family: Georgia
+    font-style: italic
+
+  &:-ms-input-placeholder
+    font-family: Georgia
+    font-style: italic

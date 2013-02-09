@@ -1,4 +1,9 @@
 form
+  padding: 2em
+  background: hsl(215, 17%, 92%)
+  border: 1px solid hsl(215, 17%, 87%)
+  +border-radius(3px)
+
   .two-column li
     width: 48%
     float: left
@@ -26,27 +31,34 @@ form
       display: block
       margin-bottom: 0.46667em
       width: 100%
+      color: #333
       font-size: 1.5em
+      font-weight: 700
+
+    textarea
+      resize: vertical
 
     input, textarea
       display: block
       max-width: 100%
       padding: 0.66667em
       width: 100%
-      background: rgba(0,0,0,0.75)
-      border: 1px solid rgba(0,0,0,1)
-      +border-radius(5px)
-      +box-shadow(rgba(0,0,0,0.5) 1px 2px 3px 0 inset, rgba(255,255,255,0.2) 0 1px 0)
+      background: hsl(215, 17%, 97%)
+      border: 1px solid hsl(215, 17%, 87%)
+      color: #333
       font-size: 1.5em
       line-height: 1.7em
-      resize: none
+      +italic-placeholders()
 
       &:focus
-        background: rgba(0,0,0,0.65)
+        background: #fff
         outline: none
 
+      &.error
+        border: 1px solid hsl(15, 87%, 50%)
+
       &[type=submit]
-        +buttonify(#333,#111)
+        +buttonify(saturate($theme, 25%), shade($theme, 15%))
 
 form.multi-step
   div[class*=step]
@@ -56,3 +68,29 @@ form.multi-step
     &.step-1
       display: block
 
+form#search
+  float: none
+  width: 100%
+  margin-bottom: 2em
+  padding: 0
+  background: none
+  border: none
+  +border-radius(none)
+
+  &:after
+    clear: both
+    content: ''
+    display: block
+
+  input
+    float: right
+    display: block
+    width: 7.5em
+    background: hsl(215, 17%, 100%)
+    color: #333
+    font-size: 1.6em
+    +italic-placeholders()
+    +single-transition(width, 300ms, ease-out)
+
+    &:focus
+      outline: none
