@@ -8,7 +8,6 @@
 
 %section.content
   .wrapper
-    = will_paginate @questions
     = render 'partials/search_form', search_path: search_questions_path
     %ol= render @questions
     = will_paginate @questions

@@ -15,8 +15,8 @@ class Search
   # event handlers
   # 
 
-  _onInputFocus: -> @self.css width: '25%'
-  _onInputBlur:  -> @self.css width: '10em'
+  _onInputFocus: -> @self.find('input').css width: '25%'
+  _onInputBlur: -> @self.find('input').css width: '7.5em'
 
   _onInputKeyUp: (event) ->
     @_submitSearch event.currentTarget.value

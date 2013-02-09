@@ -10,7 +10,6 @@
 
 %section.content
   .wrapper
-    = will_paginate @answers
     = render 'partials/search_form', search_path: search_answers_path
     = render @answers
     = will_paginate @answers
