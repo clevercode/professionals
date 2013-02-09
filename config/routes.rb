@@ -12,7 +12,7 @@ Drdannicoll::Application.routes.draw do
     post 'sign-in' => 'sessions#create'
     get 'sign-out' => 'sessions#destroy', as: 'sign_out'
 
-    root :to => 'answers#index'
+    root :to => 'pages#home'
 
     resources :questions, :articles, :answers, :module => nil
   end
