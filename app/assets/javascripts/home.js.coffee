@@ -9,8 +9,9 @@ window.home =
     console.log 'attachEventListeners'
 
   initSlider: ->
+    clearInterval @slideTimer
     setTimeout =>
-      setInterval $.proxy(@, 'slideLeft'), 5000
+      @slideTimer = setInterval $.proxy(@, 'slideLeft'), 5000
     , 5000
 
   slideLeft: ->
