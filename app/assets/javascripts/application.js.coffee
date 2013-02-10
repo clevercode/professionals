@@ -10,11 +10,15 @@ $ -> window.app.init()
 window.app =
 
   init: ->
+    @_handleFlashes() if $('.flash').length
     @attachEventListeners()
 
   attachEventListeners: ->
     $('body').on 'submit', 'form', $.proxy @, '_onFormSubmit'
     $('body').on 'keypress', 'input, textarea', $.proxy @, '_onInputKeyPress'
+
+  # event hanlders
+  # 
 
   _onFormSubmit: (event) ->
     $form  = $ event.currentTarget
@@ -34,3 +38,12 @@ window.app =
   _onInputKeyPress: (event) ->
     $input = $ event.currentTarget
     $input.removeClass 'error'
+
+  # private
+  # 
+
+  _handleFlashes: ->
+    setTimeout ->
+      $flash = $('.flash')
+      $flash.css top: -$flash.outerHeight()
+    , 3000
