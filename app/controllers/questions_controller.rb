@@ -54,7 +54,7 @@ class QuestionsController < ApplicationController
         # Tell the AdminMailer to send a question email after save
         AdminMailer.question_email(@question).deliver
 
-        format.html { redirect_to path, notice: 'Question was successfully created.' }
+        format.html { redirect_to path, notice: 'Your question was sent successfully.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }
