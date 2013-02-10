@@ -12,9 +12,5 @@ class PagesController < ApplicationController
     @body_class = 'about'
   end
 
-  def contact
-    @title = 'Contact'
-    @body_class = 'contact'
-  end
 end
 
