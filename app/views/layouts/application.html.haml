@@ -25,6 +25,11 @@
       })();
 
   %body{ class: @body_class }
+    - if flash[:notice]
+      .flash.notice= flash[:notice]
+    - if flash[:alert]
+      .flash.alert= flash[:alert]
+
     = render 'partials/header'
     = yield
     = render 'partials/footer'
