@@ -3,6 +3,10 @@ class AdminMailer < ActionMailer::Base
 
   def question_email(question)
     @question = question
-    mail to: 'contact@drdannicoll.com', subject: 'You\'ve just been asked a question.'
+    mail(
+      to: 'contact@drdannicoll.com',
+      from: "#{@question.name} <#{@question.email}>",
+      subject: 'Question for Dr. Nicoll'
+    )
   end
 end

@@ -3,56 +3,19 @@
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
     :css
-      * { margin: 0; }
       html { background: #fff; }
       body {
-        padding: 20px;
-        background: #E6EAEF;
-        border: 10px solid #fff;
+        padding: 10px 20px;
+        background: #fff;
+        border: 10px solid #e7e3dc;
         font: 14px Helvetica, Arial, sans-serif;
-        text-shadow: #fff 0 1px 0;
-      }
-      h1 {
-        margin-bottom: 1em;
-        font-size: 1.5em;
-      }
-      p { margin-bottom: 1em; }
-      br { clear: both; }
-      .content p {
-        float: left;
-        padding-right: 1em;
-      }
-      strong, .message {
-        display: inline-block;
-        padding: 3px 5px;
-        background: #eff3f9;
-        border: 1px solid #fff;
-        border-radius: 3px;
-      }
-      .message, .message-title {
-        clear: left;
-        float: none;
-        display: block;
       }
       .message { line-height: 1.5em; }
 
   %body
-    %h1 You've just been asked a question on your website.
-    .content
-      %p
-        Name:
-        %strong= @question.name
-
-      %p
-        Email Address:
-        %strong= @question.email
-
-      %p.message-title Question:
-      %p.message= @question.message
-
-    %br
-    %p Feel free to email #{@question.name} back at your earliest convenience.
+    %p.message= @question.message
     %br
     %br
-    %p Sincerely,
-    %p cleverCode
+    %p --
+    %p Thank you for your time,
+    %p= @question.name
