@@ -40,7 +40,8 @@
     - @articles.each do |article|
       %article
         %h1= article.title
-        %p= truncate(article.content, length: 400).html_safe
+        .markdown
+          %p= redcarpet truncate article.content, length: 400
         - if current_user
           = link_to 'Read More »', edit_article_path(article)
         - else
