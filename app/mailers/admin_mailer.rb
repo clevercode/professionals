@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: "questions@drdannicoll.com"
+  default from: "Questions <questions@drdannicoll.com>"
 
   def question_email(question)
     @question = question
