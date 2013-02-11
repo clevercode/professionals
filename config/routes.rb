@@ -10,9 +10,8 @@ Drdannicoll::Application.routes.draw do
     post 'sign-in' => 'sessions#create'
     get  'sign-out' => 'sessions#destroy', as: 'sign_out'
 
-    root :to => 'answers#index'
-
     resources :questions, :articles, :answers, module: nil
+    root :to => 'answers#index'
   end
 
   resources :questions, :articles, :answers do
