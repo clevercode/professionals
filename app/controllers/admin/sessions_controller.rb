@@ -11,7 +11,7 @@ module Admin
       admin = Administrator.authenticate(params[:email], params[:password])
       if admin
         session[:admin_id] = admin.id
-        redirect_to admin_root_path
+        redirect_to root_path
       else
         flash.now.alert = "Invalid email or password"
         render :new
