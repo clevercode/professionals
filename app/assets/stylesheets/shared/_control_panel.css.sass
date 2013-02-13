@@ -1,0 +1,34 @@
+.control_panel
+  height: 5em
+  margin-top: -0.5em
+  background: black
+  border-bottom: 1px solid $theme-highlight
+
+  .wrapper
+    margin: 0 auto
+    padding: 1em 0
+
+    a
+      +buttonify(saturate(#539905, 25%), shade(#539905, 15%))
+      float: left
+      display: block
+      margin-left: 1em
+      padding: 0.5em 1.25em
+      +border-radius(4px)
+      color: white
+      font-size: 1.4em
+      font-weight: 500
+      text-decoration: none
+      text-shadow: rgba(0,0,0,0.5) 0 -1px 0
+
+      &:hover
+        text-decoration: none
+
+      &:active
+        color: $white
+
+      &.edit
+        +buttonify(saturate(#B17E06, 25%), shade(#B17E06, 15%))
+
+      &.delete
+        +buttonify(saturate(#930004, 25%), shade(#930004, 15%))

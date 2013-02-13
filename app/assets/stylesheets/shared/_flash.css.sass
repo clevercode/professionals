@@ -3,15 +3,18 @@
   left: 0
   right: 0
   position: fixed
-  padding: 0.75em 1em
-  font-size: 1.4em
-  font-weight: 700
-  text-shadow: rgba(0,0,0,0.25)
-  +box-shadow(rgba(0,0,0,0.25) 0 3px 10px)
+  height: 3.333333333em
+  padding: 0 1em
+  color: white
+  font-size: 1.6em
+  font-weight: 500
+  line-height: 3.125em
+  text-shadow: rgba(0,0,0,0.4) 0 -1px 0
+  +box-shadow(rgba(0,0,0,0.5) 0 3px 10px)
   +single-transition(top, 300ms, ease-out)
 
   &.notice
-    background: hsla(125,50%,50%,0.75)
+    background: hsl(94, 94%, 31%)
 
   &.alert
-    background: hsla(0,50%,50%,0.75)
+    background: hsl(358, 100%, 34%)

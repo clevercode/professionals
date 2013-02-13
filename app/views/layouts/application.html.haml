@@ -30,6 +30,9 @@
     - if flash[:alert]
       .flash.alert= flash[:alert]
 
+    - if current_user
+      = render 'partials/control_panel'
+
     = render 'partials/header'
     = yield
     = render 'partials/footer'

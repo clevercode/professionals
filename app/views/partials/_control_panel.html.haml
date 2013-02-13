@@ -1,0 +1,12 @@
+.control_panel
+  .wrapper
+    = link_to 'Create New FAQ', new_answer_path
+    = link_to 'Create New Article', new_article_path
+
+    - if @article and @article.id?
+      = link_to 'Edit This Article', edit_article_path(@article), class: 'edit'
+      = link_to 'Delete This Article', @article, method: 'delete', confirm: 'Are you sure?', class: 'delete'
+
+    - if @answer and @answer.id?
+      = link_to 'Edit This Answer', edit_answer_path(@answer), class: 'edit'
+      = link_to 'Delete This Answer', @answer, method: 'delete', confirm: 'Are you sure?', class: 'delete'
