@@ -2,7 +2,8 @@
 #= require jquery_ujs
 #= require jquery-ui-1.8.24.custom.min
 #= require jquery.cycle
-#= require turbolinks
+#= require underscore
+#= require select2
 #= require_tree .
 
 $ -> window.app.init()
@@ -10,6 +11,7 @@ $ -> window.app.init()
 window.app =
 
   init: ->
+    $('select').select2()
     @_handleFlashes() if $('.flash').length
     @attachEventListeners()
 
@@ -17,12 +19,12 @@ window.app =
     $('body').on 'submit', 'form', $.proxy @, '_onFormSubmit'
     $('body').on 'keypress', 'input, textarea', $.proxy @, '_onInputKeyPress'
 
-  # event hanlders
+  # event handlers
   # 
 
   _onFormSubmit: (event) ->
     $form  = $ event.currentTarget
-    fields = $form.find 'input, textarea'
+    fields = $form.find 'li > input, li > textarea'
 
     perfectForm = yes
     for field in fields

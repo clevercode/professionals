@@ -86,6 +86,7 @@ form#search
     float: right
     display: block
     width: 7.5em
+    height: 3.134em
     background: hsl(215, 17%, 100%)
     color: #333
     font-size: 1.6em
@@ -94,3 +95,34 @@ form#search
 
     &:focus
       outline: none
+
+.select2-search
+  display: none
+
+.select2-results .select2-result-label
+  padding: 0.5em
+  color: #333
+  font-size: 1.5em
+  font-weight: 500
+
+.select2-results .select2-highlighted .select2-result-label
+  color: $white
+
+.content form .select2-container
+  width: 100%
+
+  a
+    height: 4.7em
+    padding-left: 1em
+    line-height: 4.7em
+
+    &:hover, &:focus
+      text-decoration: none
+
+    span
+      color: #333
+      font-size: 1.6em
+      font-weight: 500
+
+  .select2-choice div b
+    background-position: 0 1em
