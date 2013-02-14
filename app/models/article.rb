@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   attr_accessible :content, :title
 
   # Number of articles per page
-  self.per_page = 6
+  self.per_page = 9
 
   # Search
   include PgSearch
