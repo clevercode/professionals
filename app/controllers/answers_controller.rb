@@ -83,7 +83,7 @@ class AnswersController < ApplicationController
       @category = Category.find params[:category_id]
       @answers = @category.answers
     else
-      @answers = Answer.all
+      @answers = Answer
     end
 
     if query.empty?

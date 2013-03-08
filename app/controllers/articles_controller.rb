@@ -102,7 +102,7 @@ class ArticlesController < ApplicationController
       @category = Category.find params[:category_id]
       @articles = @category.articles
     else
-      @articles = Article.all
+      @articles = Article
     end
 
     if query.empty?
