@@ -14,6 +14,12 @@ Drdannicoll::Application.routes.draw do
     root :to => 'answers#index'
   end
 
+  resources :categories do
+    resources :articles, :answers, except: [:new, :edit] do
+      get 'search', :on => :collection
+    end
+  end
+
   resources :questions, :articles, :answers do
     get 'search', on: :collection
   end

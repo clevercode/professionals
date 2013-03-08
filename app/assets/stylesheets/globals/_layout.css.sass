@@ -49,9 +49,9 @@ body
     margin: 30px auto 0
 
 .content
-  padding: 40px 0
+  padding: 2em 0
   background: $white
-  border-top: 10px solid $off-white
+  border-top: 1em solid $off-white
 
   .wrapper
     margin: 0 auto
@@ -121,3 +121,35 @@ section
     font:
       size: 2.4em
       weight: 400
+
+.wrapper .categories
+  height: 2.5em
+  margin-bottom: 1.875em
+  +border-radius(0 0 0.3125em 0.3125em)
+  font-size: 1.6em
+  overflow: hidden
+
+  div
+    color: #333
+    float: left
+    width: 25%
+    display: block
+    +ellipsize()
+    font-weight: bold
+    line-height: 2.5em
+    text-align: center
+
+    a
+      width: 100%
+      height: 100%
+      display: block
+      padding: 0 1em
+      background: $off-white
+      +ellipsize()
+
+      &:hover
+        background: hsl(215, 17%, 93%)
+        text-decoration: none
+
+      &:active, &.current
+        background: $white

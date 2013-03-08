@@ -1,5 +1,5 @@
 %article.article
-  = link_to article do
+  = link_to category_article_path(article.category, article) do
     %h1= article.title
     .markdown
       %p= redcarpet truncate article.content, length: 400

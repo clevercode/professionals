@@ -1,12 +1,17 @@
 class ArticlesController < ApplicationController
-  before_filter :authorize, except: [:index, :show]
+  before_filter :authorize, except: [:index, :show, :search]
+  before_filter :add_body_class, except: [:create, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
   def index
     @title = 'Articles'
-    @body_class = 'articles'
-    @articles = Article.order(:title).paginate page: params[:page]
+    if params[:category_id]
+      @category = Category.find params[:category_id]
+      @articles = @category.articles.order(:title).paginate page: params[:page]
+    else
+      @articles = Article.order(:title).paginate page: params[:page]
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +22,6 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @body_class = 'articles'
     @article = Article.find(params[:id])
     @title = "Article ##{@article.id}"
 
@@ -30,7 +34,6 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   # GET /articles/new.json
   def new
-    @body_class = 'articles'
     @title = 'New Article'
     @article = Article.new
 
@@ -95,14 +98,25 @@ class ArticlesController < ApplicationController
     @showAll = false
     @maxArticles = Article.count
     query = params[:q]
+    if params[:category_id]
+      @category = Category.find params[:category_id]
+      @articles = @category.articles
+    else
+      @articles = Article.all
+    end
+
     if query.empty?
       @showAll = true
-      @articles = Article.paginate page: 1
+      @articles = @articles.paginate page: 1
     else
-      @articles = Article.search_by_title(query).paginate page: 1
+      @articles = @articles.search_by_title(query).paginate page: 1
     end
 
     @noResults = @articles.size < 1
     respond_to :js
+  end
+
+  def add_body_class
+    @body_class = 'articles'
   end
 end

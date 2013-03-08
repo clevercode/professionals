@@ -4,6 +4,6 @@
 
 %section.content.edit
   .wrapper
-    %p.back= link_to '‹‹ Go back', articles_path
+    %p.back= link_to '‹‹ Go back', category_articles_path(@article.category)
     = render 'form'
     = render 'partials/markdown_legend'

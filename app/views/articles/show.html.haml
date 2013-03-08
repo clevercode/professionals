@@ -3,7 +3,11 @@
 
 %section.content.show
   .wrapper
-    %p.back= link_to '‹‹ Go back', articles_path
+    - if @article.category
+      %p.back= link_to '‹‹ Go back', category_articles_path(@article.category)
+    - else
+      %p.back= link_to '‹‹ Go back', articles_path
+
     %h1= @article.title
     .markdown
       %p= redcarpet @article.content

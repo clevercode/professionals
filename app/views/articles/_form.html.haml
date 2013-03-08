@@ -1,8 +1,9 @@
 = semantic_form_for @article do |f|
   = f.inputs do
-    = f.input :title
+    .two-column
+      = f.input :title
+      = f.input :category, include_blank: false
     = f.input :content, input_html: { rows: 7 }
 
   = f.actions do
     = f.action :submit
-

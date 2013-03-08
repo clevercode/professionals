@@ -1,5 +1,7 @@
 class Answer < ActiveRecord::Base
-  attr_accessible :content, :question
+  attr_accessible :content, :question, :category_id
+
+  belongs_to :category
 
   # Number of articles per page
   self.per_page = 10

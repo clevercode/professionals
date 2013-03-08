@@ -3,7 +3,7 @@
 
 %section.content.show
   .wrapper
-    %p.back= link_to '‹‹ Go back', answers_path
+    %p.back= link_to '‹‹ Go back', category_answers_path(@answer.category)
     %h1= @answer.question
     .markdown
       %p= redcarpet @answer.content

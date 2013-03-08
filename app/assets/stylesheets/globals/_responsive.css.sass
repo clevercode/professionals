@@ -5,23 +5,49 @@
     width: 73%
 
 @media screen and (max-width: 780px)
-  section .image
-    width: 300px
-    height: 300px
-    margin-bottom: 10px
- 
+  body
+    padding-bottom: 0
 
-  section .image
-    display: none
-  section p, section h2
+    &.about .content
+      img, p
+        float: none
+        width: 100%
+
+      img
+        margin-bottom: 2em
+
+  footer
+    position: static
+    height: auto
+
+  header nav
     width: 100%
+    margin-top: 2em
+
+    a
+      margin: 0 1em 0 0
+      padding: 0.642857143em 1.642857143em 0.5em 1.714285714em
+
+  section
+    .image
+      display: none
+
+    p, h2
+      width: 100%
 
 
 @media screen and (max-width: 615px)
-  footer .image
-    display: none
-  footer p
-    width: 90%
+  body
+    padding-bottom: 42em
+
+  footer
+    height: 42em
+
+    .portrait
+      display: none
+
+    .blurb p
+      padding: 0
 
 @media screen and (max-width: 427px)
   header h1 aside

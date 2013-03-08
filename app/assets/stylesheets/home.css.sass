@@ -1,6 +1,6 @@
 .gallery
-  max-height: 350px
-  padding-top: 25px
+  max-height: 35em
+  padding-top: 2.5em
   overflow-x: visible
   overflow-y: hidden
 
@@ -9,20 +9,20 @@
     overflow: visible
 
   ul
-    height: 325px
+    height: 32.5em
     position: relative
 
   li
     float: left
     width: 50%
-    height: 325px
+    height: 32.5em
     display: none
     overflow: hidden
     position: absolute
     background-size: cover
     background-position: center center
     background-repeat: no-repeat
-    +box-shadow(rgba(0,0,0,0.75) 0 0 15px)
+    +box-shadow(rgba(0,0,0,0.75) 0 0 1.5em)
     +transition-duration(0.3s)
     +transition-property(top, left, z-index)
     +transition-timing-function(ease-in-out)
@@ -31,7 +31,7 @@
       display: block
 
     &.prev, &.left, &.right, &.next
-      top: 25px
+      top: 2.5em
       z-index: 5
       border: none
 
@@ -62,36 +62,42 @@
       min-height: 100%
 
 .dark-banner a
-  width: 31%
   float: left
-  margin: 0 3.5% 25px 0
+  width: 31%
+  display: block
+  margin: 0 3.5% 2.5em 0
   text-decoration: none
 
   &:nth-of-type(3n)
     margin-right: 0
 
-  img
-    float: left
-    width: 45px
-    height: 45px
-    display: block
-    margin: 0 10px 0 0
-    background: $white
-    +box-shadow(black 0 0 10px)
-
   h1
-    margin: 0 0 7px
+    margin: 0 0 0.388888889em
+    +ellipsize()
     font-size: 1.8em
     font-weight: 500
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
 
   p
     color: $grey
     margin: 0
     font-size: 1.5em
     text-shadow: black 0 1px 0
+
+body.home .content
+  h1
+    margin: 0 0 0.5em
+    color: $dark-grey
+    font-size: 2.6em
+    font-weight: 500
+    +ellipsize()
+
+  .categories
+    height: auto
+    +border-radius(0.3125em)
+    font-size: 1.8em
+
+    .category
+      line-height: 3em
 
 .content
   article
@@ -104,7 +110,7 @@
 
     h1
       color: $dark-grey
-      margin: 0 0 15px
+      margin: 0 0 0.833333333em
       font-size: 1.8em
       font-weight: 700
 
@@ -116,7 +122,7 @@
 
   p
     color: $dark-grey
-    margin: 0 0 12px
+    margin: 0 0 0.75em
     font-size: 1.6em
     font-weight: 400
     line-height: 1.5em
@@ -125,4 +131,5 @@
     color: #222
     font-weight: 700
 
-
+body.home .content
+  padding: 4em 0

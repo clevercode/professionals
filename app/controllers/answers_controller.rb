@@ -1,14 +1,18 @@
 class AnswersController < ApplicationController
-  before_filter :authorize, except: [:index, :show]
+  before_filter :authorize, except: [:index, :show, :search]
+  before_filter :add_body_class, except: [:create, :update, :destroy]
 
   def index
     @title = 'FAQ'
-    @body_class = 'faq'
-    @answers = Answer.paginate page: params[:page]
+    if params[:category_id]
+      @category = Category.find params[:category_id]
+      @answers = @category.answers.paginate page: params[:page]
+    else
+      @answers = Answer.paginate page: params[:page]
+    end
   end
 
   def show
-    @body_class = 'faq'
     @answer = Answer.find(params[:id])
     @title = "Answer ##{@answer.id}"
 
@@ -19,7 +23,6 @@ class AnswersController < ApplicationController
   end
 
   def new
-    @body_class = 'faq'
     @title = 'New FAQ'
     @answer = Answer.new
 
@@ -30,7 +33,6 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @body_class = 'faq'
     @answer = Answer.find(params[:id])
     @title = "Answer ##{@answer.id}"
   end
@@ -77,14 +79,25 @@ class AnswersController < ApplicationController
     @showAll = false
     @maxAnswers = Answer.count
     query = params[:q]
+    if params[:category_id]
+      @category = Category.find params[:category_id]
+      @answers = @category.answers
+    else
+      @answers = Answer.all
+    end
+
     if query.empty?
       @showAll = true
-      @answers = Answer.paginate page: 1
+      @answers = @answers.paginate page: 1
     else
-      @answers = Answer.search_by_question(query).paginate page: 1
+      @answers = @answers.search_by_question(query).paginate page: 1
     end
 
     @noResults = @answers.size < 1
     respond_to :js
+  end
+
+  def add_body_class
+    @body_class = 'faq'
   end
 end

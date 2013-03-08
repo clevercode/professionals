@@ -26,27 +26,24 @@
   .stitched-border
   .wrapper
     - @answers.each do |answer|
-      - if current_user
-        = link_to edit_answer_path(answer) do
-          %h1= answer.question
-          %p= truncate answer.content, length: 80
-      - else
-        = link_to answer do
-          %h1= answer.question
-          %p= truncate answer.content, length: 80
+      = link_to answer do
+        %h1= answer.question
+        %p= truncate answer.content, length: 80
   .stitched-border
 
 %section.content
   .wrapper
+    %h1 Where would you like to start?
+    .categories
+      - Category.all.each do |category|
+        .category= link_to category.title, category_articles_path(category)
+
     - @articles.each do |article|
       %article
         %h1= article.title
         .markdown
           %p= redcarpet truncate article.content, length: 400
-        - if current_user
-          = link_to 'Read More »', edit_article_path(article)
-        - else
-          = link_to 'Read More »', article
+        = link_to 'Read More »', article
 
 :javascript
   home.init()
