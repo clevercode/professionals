@@ -10,7 +10,7 @@ html
   min-width: 390px
   font-size: 16px
   border-top: 0.5em solid black
-  background: image-url('body-background.gif') repeat left top
+  background: image-url('body-background.gif') repeat center top
 
 body
   min-height: 100%
@@ -21,7 +21,7 @@ body
   font-weight: 200
   font-family: 'Source Sans Pro', "museo-sans", "helvetica neue", helvetica, arial, sans-serif
   border-top: 1px solid $theme-highlight
-  +background(radial-gradient(50% 275px, transparentize(saturate($theme, 10%), 0.5), transparent), transparentize($theme, 0.25))
+  background: $theme-background repeat-x center top
 
 .stitched-border
   width: 100%
