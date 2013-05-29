@@ -9,6 +9,8 @@
 
 %section.gallery
   .wrapper
+    = link_to 'prev', '', class: 'js-gallery-prev'
+    = link_to 'next', '', class: 'js-gallery-next'
     %ul
       %li{ style: "background-image: url('/gallery/01.jpg');", class: 'prev' }
       %li{ style: "background-image: url('/gallery/02.jpg');", class: 'left' }
