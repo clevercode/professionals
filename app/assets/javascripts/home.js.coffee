@@ -9,8 +9,8 @@ window.home =
     @attachEventListeners()
 
   attachEventListeners: ->
-    $('.js-gallery-prev').on 'click', $.proxy @, '_onPrevClick'
-    $('.js-gallery-next').on 'click', $.proxy @, '_onNextClick'
+    $('.js-gallery-prev').on 'click', $.proxy @, 'slideRight'
+    $('.js-gallery-next').on 'click', $.proxy @, 'slideLeft'
 
   initSlider: ->
     clearInterval @_timer
@@ -26,6 +26,7 @@ window.home =
     $(images[3]).removeClass('right').addClass 'current'
     $(images[4]).removeClass('next').addClass 'right'
     $(images[5]).addClass 'next'
+    off
 
   slideRight: ->
     images = @gallery.find 'li'
@@ -35,14 +36,4 @@ window.home =
     $(images[3]).removeClass('right').addClass 'next'
     $(images[4]).removeClass 'next'
     @gallery.find('li:last').remove().prependTo(@gallery).addClass 'prev'
-
-  # event handlers
-  # 
-
-  _onPrevClick: ->
-    @slideLeft()
-    off
-
-  _onNextClick: ->
-    @slideRight()
     off
